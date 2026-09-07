@@ -1,76 +1,62 @@
-// Chase Golden Globe — shared site script
-(function () {
-  'use strict';
+// Chase Golden Globe — shared site behaviour
 
-  // nav background on scroll
-  var nav = document.querySelector('.site-nav');
-  if (nav) {
-    window.addEventListener('scroll', function () {
-      nav.classList.toggle('solid', window.scrollY > 50);
-    }, { passive: true });
-  }
+document.addEventListener('DOMContentLoaded', () => {
 
-  // scroll reveal
-  var revealEls = document.querySelectorAll('.rv');
-  if (revealEls.length && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) e.target.classList.add('on');
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('on'); });
-  }
+  // Sticky nav background after scroll
+  const nav = document.getElementById('siteNav');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-  // animated stat counters
-  var counters = document.querySelectorAll('.stat-n[data-count]');
-  if (counters.length && 'IntersectionObserver' in window) {
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var el = e.target;
-        var target = parseInt(el.dataset.count, 10);
-        var cur = 0;
-        var step = target / 45;
-        (function tick() {
-          cur += step;
-          el.textContent = cur >= target ? target : Math.floor(cur);
-          if (cur < target) requestAnimationFrame(tick);
-        })();
-        cio.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(function (n) { cio.observe(n); });
-  }
-
-  // mobile hamburger menu
-  var toggle = document.getElementById('navToggle');
-  var navLinks = document.getElementById('navLinks');
-  var backdrop = document.getElementById('navBackdrop');
-  if (toggle && navLinks && backdrop) {
-    function closeMenu() {
-      toggle.setAttribute('aria-expanded', 'false');
-      navLinks.classList.remove('open');
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  const backdrop = document.getElementById('navBackdrop');
+  if (toggle && links && backdrop) {
+    const closeMenu = () => {
+      links.classList.remove('open');
       backdrop.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function openMenu() {
-      toggle.setAttribute('aria-expanded', 'true');
-      navLinks.classList.add('open');
-      backdrop.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    toggle.addEventListener('click', function () {
-      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      isOpen ? closeMenu() : openMenu();
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('open');
+      backdrop.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
     });
     backdrop.addEventListener('click', closeMenu);
-    navLinks.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', closeMenu);
-    });
-    window.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  // Chapter axis (Origin / The Shift / Today)
+  const chapterNav = document.querySelector('.chapter-nav');
+  if (chapterNav) {
+    const buttons = chapterNav.querySelectorAll('button');
+    const panels = document.querySelectorAll('.chapter-panel');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-chapter');
+        buttons.forEach(b => b.classList.toggle('active', b === btn));
+        panels.forEach(p => p.classList.toggle('active', p.getAttribute('data-chapter') === target));
+      });
     });
   }
-})();
+});
