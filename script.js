@@ -43,4 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Accordion (capabilities)
+  document.querySelectorAll('.accordion-item').forEach(item => {
+    const trigger = item.querySelector('.accordion-trigger');
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
 });
