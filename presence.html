@@ -17,24 +17,29 @@
 <meta property="og:url" content="https://chasegoldenglobe.com.au/presence.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&family=Markazi+Text:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://chasegoldenglobe.com.au/"},{"@type":"ListItem","position":2,"name":"Presence","item":"https://chasegoldenglobe.com.au/presence.html"}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 <nav class="site-nav" id="siteNav" aria-label="Primary">
   <a class="nav-logo" href="/" aria-label="Chase Golden Globe — Home">
     <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="Chase Golden Globe crest logo" width="34" height="24"></picture>
-    <div><div class="nav-logo-text">Chase Golden Globe</div><div class="nav-logo-sub">Est. 2006</div></div>
+    <div><div class="nav-logo-text">Chase Golden Globe</div><div class="nav-logo-sub" data-i18n="nav.sub">Est. 2006</div></div>
   </a>
   <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   <div class="nav-links" id="navLinks">
-    <a href="/about.html">About</a>
-    <a href="/capabilities.html">Capabilities</a>
-    <a href="/industries.html">Industries</a>
-    <a href="/presence.html" class="active">Presence</a>
-    <a href="/contact.html">Contact</a>
+    <a href="/about.html" data-i18n="nav.about">About</a>
+    <a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a>
+    <a href="/industries.html" data-i18n="nav.industries">Industries</a>
+    <a href="/presence.html" class="active" data-i18n="nav.presence">Presence</a>
+    <a href="/contact.html" data-i18n="nav.contact">Contact</a>
+    <div class="lang-switch">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="ar">ع</button>
+      <button type="button" data-lang="id">ID</button>
+    </div>
   </div>
 </nav>
 <div class="nav-backdrop" id="navBackdrop"></div>
@@ -43,21 +48,21 @@
 <section class="page-hero">
   <div class="container">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a><span class="sep">/</span></li><li aria-current="page"><span>Presence</span></li></ol></nav>
-    <div class="eyebrow">Global Presence</div>
-    <h1 class="headline-xl">Where we operate.</h1>
-    <p class="lede">Headquartered in Sydney since 2006, with an established presence across nine further countries spanning the Gulf, North Africa, Europe and Southeast Asia.</p>
+    <div class="eyebrow" data-i18n="pres.eyebrow">Global Presence</div>
+    <h1 class="headline-xl" data-i18n="pres.title">Where we operate.</h1>
+    <p class="lede" data-i18n="pres.lede">Headquartered in Sydney since 2006, with an established presence across nine further countries spanning the Gulf, North Africa, Europe and Southeast Asia.</p>
   </div>
 </section>
 
 <section class="tight" aria-labelledby="pres-h2">
   <div class="container">
     <div class="panel panel-dark" style="max-width:none;">
-      <div class="eyebrow on-dark">Head Office</div>
-      <h2 class="headline-md" id="pres-h2" style="color:var(--text-dark-1);">Australia</h2>
-      <p style="margin-top:12px;">Chase Golden Globe is headquartered in Sydney, New South Wales, and has operated continuously since 2006.</p>
+      <div class="eyebrow on-dark" data-i18n="pres.office.eyebrow">Head Office</div>
+      <h2 class="headline-md" id="pres-h2" style="color:var(--text-dark-1);" data-i18n="pres.office.title">Australia</h2>
+      <p style="margin-top:12px;" data-i18n="pres.office.body">Chase Golden Globe is headquartered in Sydney, New South Wales, and has operated continuously since 2006.</p>
       <div class="stat-row" style="margin-top:32px;">
-        <div><div class="stat-num" style="color:var(--text-dark-1);">2006</div><div class="stat-unit" style="color:var(--text-dark-3);">Founded</div></div>
-        <div><div class="stat-num" style="color:var(--text-dark-1);">9</div><div class="stat-unit" style="color:var(--text-dark-3);">Countries</div></div>
+        <div><div class="stat-num" style="color:var(--text-dark-1);">2006</div><div class="stat-unit" style="color:var(--text-dark-3);" data-i18n="pres.office.stat1">Founded</div></div>
+        <div><div class="stat-num" style="color:var(--text-dark-1);">9</div><div class="stat-unit" style="color:var(--text-dark-3);" data-i18n="pres.office.stat2">Countries</div></div>
       </div>
     </div>
   </div>
@@ -66,8 +71,8 @@
 <section aria-labelledby="pres-list-h">
   <div class="container">
     <div class="panel panel-khaki" style="max-width:none;">
-      <h2 class="eyebrow" id="pres-list-h">Global Presence</h2>
-      <p style="font-size:.92rem;color:var(--text-2);max-width:520px;margin-bottom:20px;">Click a highlighted country to zoom in, or use the list below. Click "Reset view" to zoom back out.</p>
+      <h2 class="eyebrow" id="pres-list-h" data-i18n="pres.eyebrow">Global Presence</h2>
+      <p style="font-size:.92rem;color:var(--text-2);max-width:700px;margin-bottom:20px;" data-i18n="pres.map.instructions">Click a highlighted country to zoom in, or use the list below. Click "Reset view" to zoom back out.</p>
       <div class="map-panel">
         <div class="map-visual">
           <svg viewBox="380 15 620 420" data-default-viewbox="380 15 620 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="World map highlighting Chase Golden Globe's presence across ten countries" class="world-map-svg" id="worldMap">
@@ -252,22 +257,22 @@
 <path class="country" d="M591.0,275.6 L592.5,280.0 L591.6,285.5 L583.8,291.1 L580.4,294.6 L576.7,298.0 L573.3,299.6 L569.7,298.8 L564.5,298.7 L560.9,285.8 L566.9,283.9 L566.4,280.4 L568.8,281.2 L573.8,283.1 L578.2,284.1 L582.5,286.8 L579.6,283.3 L579.6,276.7 L580.6,273.4 L586.5,273.9 L591.0,275.6 Z" data-name="Zambia"><title>Zambia</title></path>
 <path class="country" d="M586.6,311.8 L585.2,311.5 L584.2,311.9 L582.9,311.4 L581.8,311.4 L580.0,310.1 L577.8,309.7 L577.0,307.9 L577.0,306.9 L575.8,306.6 L572.7,303.6 L571.8,302.0 L571.2,301.5 L570.2,299.3 L573.3,299.6 L574.2,299.9 L575.1,299.8 L576.7,298.0 L579.1,295.7 L580.1,295.5 L580.4,294.6 L582.0,293.5 L584.1,293.1 L584.3,294.1 L586.6,294.1 L587.9,294.6 L588.5,295.3 L589.8,295.5 L591.2,296.4 L591.2,299.9 L590.7,301.9 L590.6,303.9 L591.0,304.8 L590.7,306.4 L590.3,306.7 L589.6,308.7 L586.6,311.8 Z" data-name="Zimbabwe"><title>Zimbabwe</title></path>
 </svg>
-          <button type="button" class="map-reset-btn" id="mapReset">Reset view</button>
+          <button type="button" class="map-reset-btn" id="mapReset" data-i18n="pres.map.reset">Reset view</button>
         </div>
         <div class="map-stats">
-          <div class="stat-block"><div class="stat-num">4</div><div class="stat-unit">Regions</div></div>
-          <div class="stat-block"><div class="stat-num">10</div><div class="stat-unit">Countries incl. HQ</div></div>
+          <div class="stat-block"><div class="stat-num">4</div><div class="stat-unit" data-i18n="pres.map.stat1">Regions</div></div>
+          <div class="stat-block"><div class="stat-num">10</div><div class="stat-unit" data-i18n="pres.map.stat2">Countries incl. HQ</div></div>
           <div class="country-list">
-            <button type="button" data-country="Australia">Australia (HQ)</button>
-<button type="button" data-country="Indonesia">Indonesia</button>
-<button type="button" data-country="Saudi Arabia">Saudi Arabia</button>
-<button type="button" data-country="Qatar">Qatar</button>
-<button type="button" data-country="Algeria">Algeria</button>
-<button type="button" data-country="Egypt">Egypt</button>
-<button type="button" data-country="United Arab Emirates">United Arab Emirates</button>
-<button type="button" data-country="United Kingdom">United Kingdom</button>
-<button type="button" data-country="Switzerland">Switzerland</button>
-<button type="button" data-country="Luxembourg">Luxembourg</button>
+            <button type="button" data-country="Australia"><span data-i18n="country.Australia">Australia</span> (HQ)</button>
+<button type="button" data-country="Indonesia" data-i18n="country.Indonesia">Indonesia</button>
+<button type="button" data-country="Saudi Arabia" data-i18n="country.Saudi Arabia">Saudi Arabia</button>
+<button type="button" data-country="Qatar" data-i18n="country.Qatar">Qatar</button>
+<button type="button" data-country="Algeria" data-i18n="country.Algeria">Algeria</button>
+<button type="button" data-country="Egypt" data-i18n="country.Egypt">Egypt</button>
+<button type="button" data-country="United Arab Emirates" data-i18n="country.United Arab Emirates">United Arab Emirates</button>
+<button type="button" data-country="United Kingdom" data-i18n="country.United Kingdom">United Kingdom</button>
+<button type="button" data-country="Switzerland" data-i18n="country.Switzerland">Switzerland</button>
+<button type="button" data-country="Luxembourg" data-i18n="country.Luxembourg">Luxembourg</button>
           </div>
         </div>
       </div>
@@ -285,19 +290,20 @@
             <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="Chase Golden Globe crest logo" width="32" height="22"></picture>
             <span class="footer-logo-text">Chase Golden Globe</span>
           </a>
-          <p class="footer-blurb">A private investment house, established 2006. Connecting investors to serious projects across Australia, Egypt, the Middle East and Europe.</p>
-          <p class="footer-blurb" style="margin-top:14px;font-size:0.85rem;">Chase Golden Globe is not itself a licensed financial services provider. Where a service requires a specific licence, we work in partnership with appropriately licensed professionals and firms.</p>
+          <p class="footer-blurb" data-i18n="footer.blurb">A private investment house, established 2006. Connecting investors to serious projects across international markets.</p>
+          <p class="footer-blurb" style="margin-top:14px;font-size:0.85rem;" data-i18n="footer.disclaimer">Chase Golden Globe is not itself a licensed financial services provider. Where a service requires a specific licence, we work in partnership with appropriately licensed professionals and firms.</p>
         </div>
-        <div class="footer-col"><h4>Explore</h4><a href="/about.html">About</a><a href="/capabilities.html">Capabilities</a><a href="/industries.html">Industries</a><a href="/presence.html">Presence</a></div>
-        <div class="footer-col"><h4>Connect</h4><a href="/contact.html">Contact</a><a href="mailto:info@chasegoldenglobe.com.au">Email Us</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.explore">Explore</h4><a href="/about.html" data-i18n="nav.about">About</a><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><a href="/industries.html" data-i18n="nav.industries">Industries</a><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
+        <div class="footer-col"><h4 data-i18n="footer.connect">Connect</h4><a href="/contact.html" data-i18n="nav.contact">Contact</a><a href="mailto:info@chasegoldenglobe.com.au" data-i18n="footer.email">Email Us</a></div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Chase Golden Globe Pty Ltd</span>
-        <div class="footer-legal"><a href="/legal.html">Legal &amp; Privacy</a><a href="/contact.html">Contact</a></div>
+        <span data-i18n="footer.copyright">&copy; 2026 Chase Golden Globe Pty Ltd</span>
+        <div class="footer-legal"><a href="/legal.html" data-i18n="footer.legal">Legal &amp; Privacy</a><a href="/contact.html" data-i18n="nav.contact">Contact</a></div>
       </div>
     </footer>
   </div>
 </div>
+<script src="/assets/i18n.js" defer></script>
 <script src="/script.js" defer></script>
 </body>
 </html>
