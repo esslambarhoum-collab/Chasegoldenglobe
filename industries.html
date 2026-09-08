@@ -45,12 +45,16 @@
 <div class="nav-backdrop" id="navBackdrop"></div>
 <main id="main">
 
-<section class="page-hero">
+<section class="tight" aria-labelledby="ind-hero-h">
   <div class="container">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a><span class="sep">/</span></li><li aria-current="page"><span>Industries</span></li></ol></nav>
-    <div class="eyebrow" data-i18n="ind.eyebrow">Where We Work</div>
-    <h1 class="headline-xl" data-i18n="ind.title">Sectors we understand.</h1>
-    <p class="lede" data-i18n="ind.lede">Sectors shaped by direct, hands-on experience, going back to the group's earliest ventures.</p>
+    <div class="hero-full hero-page" style="background-image:url('/assets/hero-industries.jpg');">
+      <div class="hero-page-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a><span class="sep">/</span></li><li aria-current="page"><span>Industries</span></li></ol></nav>
+        <div class="eyebrow on-dark" data-i18n="ind.eyebrow">Where We Work</div>
+        <h1 class="headline-xl" id="ind-hero-h" style="color:var(--text-dark-1);" data-i18n="ind.title">Sectors we understand.</h1>
+        <p class="lede on-dark" data-i18n="ind.lede">Sectors shaped by direct, hands-on experience, going back to the group's earliest ventures.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -121,10 +125,12 @@
             <span class="footer-logo-text">Chase Golden Globe</span>
           </a>
           <p class="footer-blurb" data-i18n="footer.blurb">A private investment house, established 2006. Connecting investors to serious projects across international markets.</p>
-          <p class="footer-blurb" style="margin-top:14px;font-size:0.85rem;" data-i18n="footer.disclaimer">Chase Golden Globe is not itself a licensed financial services provider. Where a service requires a specific licence, we work in partnership with appropriately licensed professionals and firms.</p>
+          <p class="footer-blurb footer-disclaimer" style="margin-top:14px;font-size:0.85rem;" data-i18n="footer.disclaimer">Chase Golden Globe is not itself a licensed financial services provider. Where a service requires a specific licence, we work in partnership with appropriately licensed professionals and firms.</p>
         </div>
+        <div class="footer-cols-row">
         <div class="footer-col"><h4 data-i18n="footer.explore">Explore</h4><a href="/about.html" data-i18n="nav.about">About</a><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><a href="/industries.html" data-i18n="nav.industries">Industries</a><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
         <div class="footer-col"><h4 data-i18n="footer.connect">Connect</h4><a href="/contact.html" data-i18n="nav.contact">Contact</a><a href="mailto:info@chasegoldenglobe.com.au" data-i18n="footer.email">Email Us</a></div>
+        </div>
       </div>
       <div class="footer-bottom">
         <span data-i18n="footer.copyright">&copy; 2026 Chase Golden Globe Pty Ltd</span>

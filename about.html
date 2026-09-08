@@ -53,17 +53,15 @@
 
 <main id="main">
 
-<section class="page-hero">
+<section class="tight" aria-labelledby="about-hero-h">
   <div class="container">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a><span class="sep">/</span></li><li aria-current="page"><span>About</span></li></ol></nav>
-    <div class="eyebrow" data-i18n="about.eyebrow">About</div>
-    <h1 class="headline-xl" data-i18n="about.title">Our story.</h1>
-  </div>
-</section>
-
-<section class="tight" style="padding-top:0;">
-  <div class="container">
-    <img src="/assets/hero-lobby.jpg" alt="Grand marble hotel lobby with warm chandelier light" width="1600" height="900" style="width:100%;height:auto;border-radius:var(--r-panel);display:block;" loading="lazy">
+    <div class="hero-full hero-page" style="background-image:url('/assets/hero-lobby.jpg');">
+      <div class="hero-page-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a><span class="sep">/</span></li><li aria-current="page"><span>About</span></li></ol></nav>
+        <div class="eyebrow on-dark" data-i18n="about.eyebrow">About</div>
+        <h1 class="headline-xl" id="about-hero-h" style="color:var(--text-dark-1);" data-i18n="about.title">Our story.</h1>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -127,20 +125,17 @@
 
 <section class="tight" aria-labelledby="philosophy-h">
   <div class="container">
-    <div class="panel panel-khaki">
-      <div class="eyebrow" data-i18n="about.philosophy.eyebrow">Our Philosophy</div>
-      <h2 class="headline-lg" id="philosophy-h" data-i18n="about.philosophy.title">Start small. Think big. Go fast.</h2>
-      <p style="margin-top:16px;max-width:720px;" data-i18n="about.philosophy.body">The journey has included successes, challenges, setbacks and failures. At Chase Golden Globe, failure is not regarded as defeat, it is regarded as experience and a lesson that strengthens the next decision. Sustainable success comes from discipline and consistency, not shortcuts. Markets change, opportunities change, people change. Integrity, professionalism and trust must remain constant.</p>
-    </div>
-  </div>
-</section>
-
-<section class="tight" aria-labelledby="trust-h">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i18n="about.trust.eyebrow">Trust Is Our Capital</div>
-      <h2 class="headline-md" id="trust-h" data-i18n="about.trust.title">Trust takes years to build and seconds to lose.</h2>
-      <p class="body-copy" style="margin-top:14px;max-width:none;" data-i18n="about.trust.body">For this reason, Chase Golden Globe operates with discipline, discretion and accountability. We do not pursue every opportunity. We focus on opportunities where there is a credible foundation, a clear commercial purpose and the potential to create genuine value for all parties.</p>
+    <div class="panel-row">
+      <div class="panel panel-khaki">
+        <div class="eyebrow" data-i18n="about.philosophy.eyebrow">Our Philosophy</div>
+        <h2 class="headline-md" id="philosophy-h" data-i18n="about.philosophy.title">Start small. Think big. Go fast.</h2>
+        <p style="margin-top:16px;" data-i18n="about.philosophy.body">The journey has included successes, challenges, setbacks and failures. At Chase Golden Globe, failure is not regarded as defeat, it is regarded as experience and a lesson that strengthens the next decision. Sustainable success comes from discipline and consistency, not shortcuts. Markets change, opportunities change, people change. Integrity, professionalism and trust must remain constant.</p>
+      </div>
+      <div class="panel panel-dark">
+        <div class="eyebrow on-dark" data-i18n="about.trust.eyebrow">Trust Is Our Capital</div>
+        <h2 class="headline-md" id="trust-h" style="color:var(--text-dark-1);" data-i18n="about.trust.title">Trust takes years to build and seconds to lose.</h2>
+        <p style="margin-top:16px;" data-i18n="about.trust.body">For this reason, Chase Golden Globe operates with discipline, discretion and accountability. We do not pursue every opportunity. We focus on opportunities where there is a credible foundation, a clear commercial purpose and the potential to create genuine value for all parties.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -169,10 +164,14 @@
 
 <section aria-labelledby="contact-h">
   <div class="container">
-    <div class="panel panel-dark" style="max-width:760px;margin-left:auto;margin-right:auto;">
-      <div class="eyebrow on-dark" data-i18n="home.cta.eyebrow">Get in Touch</div>
-      <h2 class="headline-md" id="contact-h" style="color:var(--text-dark-1);" data-i18n="home.cta.title">Begin the conversation.</h2>
-      <a class="btn btn-brass" href="/contact.html" style="margin-top:24px;" data-i18n="home.cta.btn">Contact Us</a>
+    <div class="panel panel-dark cta-band">
+      <div class="cta-band-inner">
+        <div>
+          <div class="eyebrow on-dark" data-i18n="home.cta.eyebrow">Get in Touch</div>
+          <h2 class="headline-md" id="contact-h" style="color:var(--text-dark-1);" data-i18n="home.cta.title">Begin the conversation.</h2>
+        </div>
+        <a class="btn btn-brass" href="/contact.html" data-i18n="home.cta.btn">Contact Us</a>
+      </div>
     </div>
   </div>
 </section>
@@ -189,10 +188,12 @@
             <span class="footer-logo-text">Chase Golden Globe</span>
           </a>
           <p class="footer-blurb" data-i18n="footer.blurb">A private investment house, established 2006. Connecting investors to serious projects across international markets.</p>
-          <p class="footer-blurb" style="margin-top:14px;font-size:0.85rem;" data-i18n="footer.disclaimer">Chase Golden Globe is not itself a licensed financial services provider. Where a service requires a specific licence, we work in partnership with appropriately licensed professionals and firms.</p>
+          <p class="footer-blurb footer-disclaimer" style="margin-top:14px;font-size:0.85rem;" data-i18n="footer.disclaimer">Chase Golden Globe is not itself a licensed financial services provider. Where a service requires a specific licence, we work in partnership with appropriately licensed professionals and firms.</p>
         </div>
+        <div class="footer-cols-row">
         <div class="footer-col"><h4 data-i18n="footer.explore">Explore</h4><a href="/about.html" data-i18n="nav.about">About</a><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><a href="/industries.html" data-i18n="nav.industries">Industries</a><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
         <div class="footer-col"><h4 data-i18n="footer.connect">Connect</h4><a href="/contact.html" data-i18n="nav.contact">Contact</a><a href="mailto:info@chasegoldenglobe.com.au" data-i18n="footer.email">Email Us</a></div>
+        </div>
       </div>
       <div class="footer-bottom">
         <span data-i18n="footer.copyright">&copy; 2026 Chase Golden Globe Pty Ltd</span>

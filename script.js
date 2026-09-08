@@ -25,12 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = () => {
       links.classList.remove('open');
       backdrop.classList.remove('open');
+      toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
     };
     toggle.addEventListener('click', () => {
       const isOpen = links.classList.toggle('open');
       backdrop.classList.toggle('open', isOpen);
+      toggle.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     });
     backdrop.addEventListener('click', closeMenu);
     cggEach(links.querySelectorAll('a'), (a) => a.addEventListener('click', closeMenu));
