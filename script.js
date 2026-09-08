@@ -53,6 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
       tooltip.className = 'map-tooltip';
       document.body.appendChild(tooltip);
     }
+    const svg = document.getElementById('worldMap');
+    const resetBtn = document.getElementById('mapReset');
+    const defaultViewBox = svg ? svg.getAttribute('data-default-viewbox') : null;
+
+    const zoomToBbox = (bbox) => {
+      if (!svg || !bbox) return;
+      svg.setAttribute('viewBox', bbox.split(',').join(' '));
+      if (resetBtn) resetBtn.classList.add('show');
+    };
+    const resetZoom = () => {
+      if (!svg || !defaultViewBox) return;
+      svg.setAttribute('viewBox', defaultViewBox);
+      if (resetBtn) resetBtn.classList.remove('show');
+    };
+
     const countries = mapVisual.querySelectorAll('.country.hi');
     countries.forEach(path => {
       path.addEventListener('mousemove', (e) => {
@@ -63,6 +78,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       path.addEventListener('mouseleave', () => {
         tooltip.classList.remove('show');
+      });
+      path.addEventListener('click', () => {
+        zoomToBbox(path.getAttribute('data-bbox'));
+      });
+    });
+
+    if (resetBtn) resetBtn.addEventListener('click', resetZoom);
+
+    document.querySelectorAll('.country-list button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-country');
+        const path = mapVisual.querySelector(`.country.hi[data-name="${name}"]`);
+        if (path) zoomToBbox(path.getAttribute('data-bbox'));
       });
     });
   }
