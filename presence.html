@@ -29,7 +29,7 @@
     <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="Chase Golden Globe crest logo" width="34" height="24"></picture>
     <div><div class="nav-logo-text">Chase Golden Globe</div><div class="nav-logo-sub" data-i18n="nav.sub">Est. 2006</div></div>
   </a>
-  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
   <div class="nav-links" id="navLinks">
     <a href="/about.html" data-i18n="nav.about">About</a>
     <a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a>
@@ -43,18 +43,15 @@
     </div>
   </div>
 </nav>
-<div class="nav-backdrop" id="navBackdrop"></div>
 <main id="main">
 
 <section class="tight" aria-labelledby="pres-hero-h">
-  <div class="container">
-    <div class="hero-full hero-page" style="background-image:url('/assets/hero-presence.jpg');">
-      <div class="hero-page-content">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a><span class="sep">/</span></li><li aria-current="page"><span>Presence</span></li></ol></nav>
-        <div class="eyebrow on-dark" data-i18n="pres.eyebrow">Global Presence</div>
-        <h1 class="headline-xl" id="pres-hero-h" style="color:var(--text-dark-1);" data-i18n="pres.title">Where we operate.</h1>
-        <p class="lede on-dark" data-i18n="pres.lede">Headquartered in Sydney since 2006, with an established presence across nine further countries spanning the Gulf, North Africa, Europe and Southeast Asia.</p>
-      </div>
+  <div class="hero-full hero-page" style="background-image:url('/assets/hero-presence.jpg');">
+    <div class="hero-page-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a><span class="sep">/</span></li><li aria-current="page"><span>Presence</span></li></ol></nav>
+      <div class="eyebrow on-dark" data-i18n="pres.eyebrow">Global Presence</div>
+      <h1 class="headline-xl" id="pres-hero-h" style="color:var(--text-dark-1);" data-i18n="pres.title">Where we operate.</h1>
+      <p class="lede on-dark" data-i18n="pres.lede">Headquartered in Sydney since 2006, with an established presence across nine further countries spanning the Gulf, North Africa, Europe and Southeast Asia.</p>
     </div>
   </div>
 </section>
@@ -277,8 +274,8 @@
           <button type="button" class="map-reset-btn" id="mapReset" data-i18n="pres.map.reset">Reset view</button>
         </div>
         <div class="map-stats">
-          <div class="stat-block"><div class="stat-num">4</div><div class="stat-unit" data-i18n="pres.map.stat1">Regions</div></div>
-          <div class="stat-block"><div class="stat-num">10</div><div class="stat-unit" data-i18n="pres.map.stat2">Countries incl. HQ</div></div>
+          <div class="stat-card"><div class="stat-num">4</div><div class="stat-unit" data-i18n="pres.map.stat1">Regions</div></div>
+          <div class="stat-card"><div class="stat-num">10</div><div class="stat-unit" data-i18n="pres.map.stat2">Countries incl. HQ</div></div>
           <div class="country-list">
             <button type="button" data-country="Australia"><span data-i18n="country.Australia">Australia</span> (HQ)</button>
 <button type="button" data-country="Indonesia" data-i18n="country.Indonesia">Indonesia</button>
@@ -298,9 +295,8 @@
 </section>
 
 </main>
-<div class="footer-wrap">
+<footer class="site-footer">
   <div class="container">
-    <footer class="site-footer">
       <div class="footer-cta">
         <div class="footer-cta-inner">
           <div>
@@ -329,9 +325,8 @@
         <span data-i18n="footer.copyright">&copy; 2026 Chase Golden Globe Pty Ltd</span>
         <div class="footer-legal"><a href="/legal.html" data-i18n="footer.legal">Legal &amp; Privacy</a><a href="/contact.html" data-i18n="nav.contact">Contact</a></div>
       </div>
-    </footer>
   </div>
-</div>
+</footer>
 <script src="/assets/i18n.js" defer></script>
 <script src="/script.js" defer></script>
 </body>

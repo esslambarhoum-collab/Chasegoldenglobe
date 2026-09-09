@@ -17,41 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  // Mobile menu
+  // Mobile menu — expands in place below the nav (no slide-in panel, no
+  // full-screen overlay). Toggle is a text label ("Menu"/"Close"), translated
+  // via the same dictionary the language switcher uses.
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
-  const backdrop = document.getElementById('navBackdrop');
-  if (toggle && links && backdrop) {
+  if (toggle && links) {
+    const currentDict = () => {
+      const lang = document.documentElement.getAttribute('lang') || 'en';
+      return (typeof CGG_TRANSLATIONS !== 'undefined' && CGG_TRANSLATIONS[lang]) || {};
+    };
+    const setToggleLabel = (isOpen) => {
+      const key = isOpen ? 'nav.close' : 'nav.menu';
+      const dict = currentDict();
+      toggle.setAttribute('data-i18n', key);
+      toggle.textContent = dict[key] || (isOpen ? 'Close' : 'Menu');
+    };
     const closeMenu = () => {
       links.classList.remove('open');
-      backdrop.classList.remove('open');
-      toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Open menu');
+      setToggleLabel(false);
     };
     toggle.addEventListener('click', () => {
       const isOpen = links.classList.toggle('open');
-      backdrop.classList.toggle('open', isOpen);
-      toggle.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', String(isOpen));
-      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      setToggleLabel(isOpen);
     });
-    backdrop.addEventListener('click', closeMenu);
     cggEach(links.querySelectorAll('a'), (a) => a.addEventListener('click', closeMenu));
-  }
-
-  // Chapter axis (Origin / The Shift / Today)
-  const chapterNav = document.querySelector('.chapter-nav');
-  if (chapterNav) {
-    const buttons = chapterNav.querySelectorAll('button');
-    const panels = document.querySelectorAll('.chapter-panel');
-    cggEach(buttons, (btn) => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-chapter');
-        cggEach(buttons, (b) => b.classList.toggle('active', b === btn));
-        cggEach(panels, (p) => p.classList.toggle('active', p.getAttribute('data-chapter') === target));
-      });
-    });
   }
 
   // Capability tiles (expand in place)

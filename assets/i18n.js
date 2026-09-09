@@ -4,6 +4,8 @@
 const CGG_TRANSLATIONS = {
   en: {
     "skip": "Skip to main content",
+    "nav.menu": "Menu",
+    "nav.close": "Close",
     "nav.about": "About",
     "nav.capabilities": "Capabilities",
     "nav.industries": "Industries",
@@ -31,6 +33,14 @@ const CGG_TRANSLATIONS = {
     "home.cta.title": "Begin the conversation.",
     "home.cta.body": "For matters of investment, trade or partnership, the house receives enquiries directly.",
     "home.cta.btn": "Contact Us",
+
+    "home.stats.heading": "By the Numbers",
+    "home.stats.deals.label": "Deals Facilitated",
+    "home.stats.deals.unit": "USD, cumulative deal value",
+    "home.stats.years.label": "In Operation",
+    "home.stats.years.unit": "Years, since 2006",
+    "home.stats.countries.label": "Global Reach",
+    "home.stats.countries.unit": "Countries of established presence",
 
     "footer.blurb": "A private investment house, established 2006. Connecting investors to serious projects across international markets.",
     "footer.disclaimer": "Chase Golden Globe is not itself a licensed financial services provider. Where a service requires a specific licence, we work in partnership with appropriately licensed professionals and firms.",
@@ -173,6 +183,8 @@ const CGG_TRANSLATIONS = {
   },
   ar: {
     "skip": "تخطَّ إلى المحتوى الرئيسي",
+    "nav.menu": "القائمة",
+    "nav.close": "إغلاق",
     "nav.about": "من نحن",
     "nav.capabilities": "قدراتنا",
     "nav.industries": "القطاعات",
@@ -200,6 +212,14 @@ const CGG_TRANSLATIONS = {
     "home.cta.title": "ابدأ المحادثة.",
     "home.cta.body": "لأي أمور تتعلق بالاستثمار أو التجارة أو الشراكة، يستقبل البيت الاستفسارات مباشرة.",
     "home.cta.btn": "تواصل معنا",
+
+    "home.stats.heading": "بالأرقام",
+    "home.stats.deals.label": "الصفقات المنجزة",
+    "home.stats.deals.unit": "دولار أمريكي، القيمة التراكمية للصفقات",
+    "home.stats.years.label": "سنوات العمل",
+    "home.stats.years.unit": "منذ عام 2006",
+    "home.stats.countries.label": "الانتشار العالمي",
+    "home.stats.countries.unit": "دولة ذات تواجد راسخ",
 
     "footer.blurb": "بيت استثمار خاص، تأسس عام 2006. نربط المستثمرين بمشاريع جادة عبر الأسواق العالمية.",
     "footer.disclaimer": "تشيس غولدن غلوب ليست بحد ذاتها مزود خدمات مالية مرخص. حيثما تتطلب خدمة ما ترخيصًا محددًا، نعمل بالشراكة مع محترفين وشركات مرخصة بشكل مناسب.",
@@ -343,6 +363,8 @@ const CGG_TRANSLATIONS = {
 
   id: {
     "skip": "Langsung ke konten utama",
+    "nav.menu": "Menu",
+    "nav.close": "Tutup",
     "nav.about": "Tentang",
     "nav.capabilities": "Kapabilitas",
     "nav.industries": "Industri",
@@ -370,6 +392,14 @@ const CGG_TRANSLATIONS = {
     "home.cta.title": "Mulai percakapan.",
     "home.cta.body": "Untuk urusan investasi, perdagangan, atau kemitraan, kami menerima pertanyaan secara langsung.",
     "home.cta.btn": "Hubungi Kami",
+
+    "home.stats.heading": "Dalam Angka",
+    "home.stats.deals.label": "Transaksi Difasilitasi",
+    "home.stats.deals.unit": "USD, nilai transaksi kumulatif",
+    "home.stats.years.label": "Tahun Beroperasi",
+    "home.stats.years.unit": "Sejak tahun 2006",
+    "home.stats.countries.label": "Jangkauan Global",
+    "home.stats.countries.unit": "Negara dengan kehadiran mapan",
 
     "footer.blurb": "Rumah investasi swasta, berdiri sejak 2006. Menghubungkan investor dengan proyek serius di pasar internasional.",
     "footer.disclaimer": "Chase Golden Globe bukan penyedia jasa keuangan berlisensi. Apabila suatu layanan memerlukan lisensi tertentu, kami bekerja sama dengan para profesional dan perusahaan yang berlisensi sesuai.",

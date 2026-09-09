@@ -29,7 +29,7 @@
     <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="Chase Golden Globe crest logo" width="34" height="24"></picture>
     <div><div class="nav-logo-text">Chase Golden Globe</div><div class="nav-logo-sub" data-i18n="nav.sub">Est. 2006</div></div>
   </a>
-  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
   <div class="nav-links" id="navLinks">
     <a href="/about.html" data-i18n="nav.about">About</a>
     <a href="/capabilities.html" class="active" data-i18n="nav.capabilities">Capabilities</a>
@@ -43,18 +43,15 @@
     </div>
   </div>
 </nav>
-<div class="nav-backdrop" id="navBackdrop"></div>
 <main id="main">
 
 <section class="tight" aria-labelledby="cap-hero-h">
-  <div class="container">
-    <div class="hero-full hero-page" style="background-image:url('/assets/hero-capabilities.jpg');">
-      <div class="hero-page-content">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a><span class="sep">/</span></li><li aria-current="page"><span>Capabilities</span></li></ol></nav>
-        <div class="eyebrow on-dark" data-i18n="cap.eyebrow">What We Do</div>
-        <h1 class="headline-xl" id="cap-hero-h" style="color:var(--text-dark-1);" data-i18n="cap.title">Core capabilities.</h1>
-        <p class="lede on-dark" data-i18n="cap.lede">Nine capabilities that take a project from a conversation to a bankable, fundable proposition.</p>
-      </div>
+  <div class="hero-full hero-page" style="background-image:url('/assets/hero-capabilities.jpg');">
+    <div class="hero-page-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a><span class="sep">/</span></li><li aria-current="page"><span>Capabilities</span></li></ol></nav>
+      <div class="eyebrow on-dark" data-i18n="cap.eyebrow">What We Do</div>
+      <h1 class="headline-xl" id="cap-hero-h" style="color:var(--text-dark-1);" data-i18n="cap.title">Core capabilities.</h1>
+      <p class="lede on-dark" data-i18n="cap.lede">Nine capabilities that take a project from a conversation to a bankable, fundable proposition.</p>
     </div>
   </div>
 </section>
@@ -144,9 +141,8 @@
 </section>
 
 </main>
-<div class="footer-wrap">
+<footer class="site-footer">
   <div class="container">
-    <footer class="site-footer">
       <div class="footer-cta">
         <div class="footer-cta-inner">
           <div>
@@ -175,9 +171,8 @@
         <span data-i18n="footer.copyright">&copy; 2026 Chase Golden Globe Pty Ltd</span>
         <div class="footer-legal"><a href="/legal.html" data-i18n="footer.legal">Legal &amp; Privacy</a><a href="/contact.html" data-i18n="nav.contact">Contact</a></div>
       </div>
-    </footer>
   </div>
-</div>
+</footer>
 <script src="/assets/i18n.js" defer></script>
 <script src="/script.js" defer></script>
 </body>
