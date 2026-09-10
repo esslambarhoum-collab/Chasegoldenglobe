@@ -76,7 +76,7 @@ def nav(active):
     <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="46" height="32"></picture>
     <div><div class="nav-logo-text">Chase Golden Globe</div><div class="nav-logo-sub" data-i18n="nav.sub">Est. 2006 · Sydney</div></div>
   </a>
-  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
+  <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
   <div class="nav-links" id="navLinks">
 {items}    <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true" class="active">EN</button>
@@ -204,11 +204,11 @@ PAGES["index"] = dict(
     slug="index",
     title="Chase Golden Globe | Private Investment House, Est. 2006",
     desc="Chase Golden Globe connects investors to projects across international markets, from a house that began trading fine furniture between Indonesia and Australia in 2006.",
-    preload="/assets/hero-industries.jpg",
+    preload="/assets/hero-home.jpg",
     schema=['{"@context":"https://schema.org","@type":"Organization","@id":"' + SITE + '/#organization","name":"Chase Golden Globe","legalName":"Chase Golden Globe Pty Ltd","url":"' + SITE + '/","logo":"' + SITE + '/assets/logo.png","foundingDate":"2006","email":"info@chasegoldenglobe.com.au","description":"Chase Golden Globe is a private international business and investment platform that began by trading fine furniture between Indonesia and Australia in 2006, and today connects investors to projects across international markets.","founder":{"@type":"Person","name":"Fouad Barhoum"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"areaServed":["AU","ID","SA","QA","AE","DZ","EG","GB","CH","LU"]}'],
     active=None,
     body=f'''<main id="main">
-<div class="hero" style="background-image:url('/assets/hero-industries.jpg');">
+<div class="hero" style="background-image:url('/assets/hero-home.jpg');">
   <div class="hero-in">
     <div class="eyebrow" data-i18n="hero.eyebrow">Private Investment House · Est. 2006</div>
     <h1 class="h-home" data-i18n="hero.title">From the docks to the deal room.</h1>
@@ -251,7 +251,7 @@ PAGES["index"] = dict(
 </div></section>
 
 <section aria-labelledby="ind-h"><div class="wrap">
-  <div class="sector-band" style="background-image:url('/assets/office-indonesia.jpg');">
+  <div class="sector-band" style="background-image:url('/assets/hero-industries.jpg');">
     <div class="sector-in">
       <div>
         <div class="eyebrow on-dark" data-i18n="nav.industries">Industries</div>
@@ -295,15 +295,15 @@ PAGES["about"] = dict(
     <button type="button" role="tab" id="tab-3" aria-controls="chapter-3" aria-selected="false" tabindex="-1"><b data-i18n="about.tl3.year">Today</b><span data-i18n="about.tab3">Investment Platform</span></button>
   </div>
   <div class="chapter active" id="chapter-1" role="tabpanel" aria-labelledby="tab-1">
-    <div class="photo" style="background-image:url('/assets/hero-notebook.jpg');" role="img" aria-label="Chapter one"></div>
+    <div class="photo" style="background-image:url('/assets/chapter-2006.jpg');" role="img" aria-label="A craftsman carving a teak panel in an Indonesian furniture workshop"></div>
     <div class="panel panel-dark"><div class="eyebrow on-dark" data-i18n="about.ch1.eyebrow">2006 · Indonesia to Australia</div><h2 data-i18n="about.ch1.title">A name inspired by quality and value.</h2><p data-i18n="about.ch1.body">In 2006, Chase Golden Globe began its first trading operations, importing fine furniture and handicrafts from Indonesia into the Australian market. The name was inspired by the Golden Globe grape — distinctive, refined, and naturally associated with quality and value. What started as a small showroom gradually expanded into a broader trading network built on trust, discipline and long-term relationships.</p></div>
   </div>
   <div class="chapter" id="chapter-2" role="tabpanel" aria-labelledby="tab-2" hidden>
-    <div class="photo" style="background-image:url('/assets/hero-contact-new.jpg');" role="img" aria-label="Chapter two"></div>
+    <div class="photo" style="background-image:url('/assets/chapter-2010.jpg');" role="img" aria-label="A gilded reception room with chandelier and marble floor"></div>
     <div class="panel panel-khaki"><div class="eyebrow on-khaki" data-i18n="about.ch2.eyebrow">2010 · Europe, the Middle East, Asia</div><h2 data-i18n="about.ch2.title">From a showroom to an international network.</h2><p data-i18n="about.ch2.body">As the business grew, Chase Golden Globe began re-exporting selected Indonesian furniture and handicraft to markets across Europe and the Middle East, then expanded into food and agricultural products, including Australian honey and premium dairy, supplying Indonesia, Asia and international markets. In 2010 a new chapter began through a venture with Royalty Prussia, extending into high-end interior design, luxury real estate, premium renovations and prestigious properties including embassies and palaces around the world.</p></div>
   </div>
   <div class="chapter" id="chapter-3" role="tabpanel" aria-labelledby="tab-3" hidden>
-    <div class="photo" style="background-image:url('/assets/hero-capabilities.jpg');" role="img" aria-label="Chapter three"></div>
+    <div class="photo" style="background-image:url('/assets/hero-capabilities.jpg');" role="img" aria-label="A boardroom overlooking a city at dusk"></div>
     <div class="panel panel-dark"><div class="eyebrow on-dark" data-i18n="about.ch3.eyebrow">Today · Worldwide</div><h2 data-i18n="about.ch3.title">A broader international business and investment network.</h2><p data-i18n="about.ch3.body">Today, Chase Golden Globe operates as an international business and investment platform. Fouad Barhoum travels the world connecting investors to projects, drawing on relationships built across investment and finance, real estate, oil and gas, mining, international trade and strategic partnerships. The company has worked closely with investment authorities and government-linked institutions in Indonesia, and its network extends to sovereign wealth funds, state-owned companies and private investors worldwide.</p></div>
   </div>
 </div></section>
@@ -336,16 +336,17 @@ PAGES["about"] = dict(
 PAGES["capabilities"] = dict(
     slug="capabilities", active="capabilities",
     title="Capabilities | Chase Golden Globe",
-    desc="Nine core capabilities of Chase Golden Globe, from structured finance and government liaison to capital raising, M&A and joint ventures, with due diligence, investor reporting and pitch preparation on every project.",
+    desc="Nine core capabilities of Chase Golden Globe, from structured finance and government liaison to capital raising, M&amp;A and joint ventures, with due diligence, investor reporting and pitch preparation on every project.",
     schema=[breadcrumb_schema("Capabilities", "capabilities")],
     body=f'''<main id="main">
-{phero("/assets/hero-capabilities.jpg", "nav.capabilities", "Capabilities", "cap.eyebrow", "What We Do", "cap.title", "Core capabilities.", "cap.lede", "Nine capabilities that take a project from a conversation to a bankable, fundable proposition.", "cap-h")}
+{phero("/assets/hero-handshake.jpg", "nav.capabilities", "Capabilities", "cap.eyebrow", "What We Do", "cap.title", "Core capabilities.", "cap.lede", "Nine capabilities that take a project from a conversation to a bankable, fundable proposition.", "cap-h")}
 <section class="tight" aria-labelledby="core-h"><div class="wrap">
   <div class="panel panel-dark core">
     <div>
       <div class="eyebrow on-dark" data-i18n="cap.core.eyebrow">Between Opportunity and Capital</div>
       <h2 class="h-sec" id="core-h" data-i18n="cap.core.title">The work that sits underneath every engagement.</h2>
       <p data-i18n="cap.core.body">Our role is to sit between opportunity and capital, examining the structure, counterparties, market conditions and risks before a transaction moves forward. Three things happen on every project, whatever the capability.</p>
+      <img class="core-photo" src="/assets/capabilities-desk.jpg" alt="A due-diligence binder of financial statements and an investment memorandum on a desk" width="1264" height="848" loading="lazy">
     </div>
     <div class="core-items">
       <div><b data-i18n="cap.core.1.t">Due diligence</b><p data-i18n="cap.core.1.b">Structure, counterparties, market and risk examined before anyone commits.</p></div>
@@ -370,9 +371,9 @@ PAGES["industries"] = dict(
     desc="Nine sectors Chase Golden Globe works across: agriculture and food security, energy, infrastructure, retail and hospitality, manufacturing, cross-border trade, real estate, oil and gas, and mining.",
     schema=[breadcrumb_schema("Industries", "industries")],
     body=f'''<main id="main">
-{phero("/assets/hero-handshake.jpg", "nav.industries", "Industries", "ind.eyebrow", "Where We Work", "ind.title", "Sectors we understand.", "ind.lede", "Nine sectors, several of them shaped by the group's own ventures rather than studied from a distance.", "ind-h")}
+{phero("/assets/hero-sectors.jpg", "nav.industries", "Industries", "ind.eyebrow", "Where We Work", "ind.title", "Sectors we understand.", "ind.lede", "Nine sectors, several of them shaped by the group's own ventures rather than studied from a distance.", "ind-h")}
 <section class="tight" aria-labelledby="sectors-h"><div class="wrap">
-  <div class="sec-head"><div class="eyebrow" data-i18n="ind.h2.eyebrow">From the Inside</div><h2 class="h-sec" id="sectors-h" data-i18n="ind.h2.title">Furniture export, food and agriculture, luxury property: the group has operated in these, not only advised on them.</h2></div>
+  <div class="sec-head"><div class="eyebrow" data-i18n="ind.h2.eyebrow">From the Inside</div><h2 class="h-sec" id="sectors-h" data-i18n="ind.h2.title">The group has operated in these sectors, not only advised on them.</h2></div>
   <div class="cards3">
 {sector_cards()}
   </div>

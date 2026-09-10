@@ -1,8 +1,8 @@
-# Chase Golden Globe — site rebuild (10 September 2026)
+# Chase Golden Globe — site rebuild v4.1 (10 September 2026)
 
 ## How to deploy
 1. Copy everything in this folder into the root of the GitHub Pages repo, replacing the existing files.
-2. The `assets/` folder is additive: it adds `hero-handshake.jpg`, `hero-map-wall.jpg`, `hero-notebook.jpg` and the regenerated `i18n.js`, and re-supplies files that were already there. It does not remove anything. `hero-lobby.jpg`, `hero-presence.jpg`, `favicon.ico` and `favicon-32.png` are not in this zip — they are already on the server and still used (hero-presence is no longer referenced and can be deleted; hero-office-port.jpg is also no longer used).
+2. This zip is complete: `assets/` contains every file the site references, including the favicons. A full replace of the repo folder is safe.
 3. Commit and push. No build step is needed on the server.
 
 ## Editing later
@@ -11,11 +11,12 @@
 - `map.svg` is the simplified world map used on Home and Presence.
 - `style.css` and `script.js` are hand-written; edit directly.
 
-## Image slots that would benefit from a new photo
-- `assets/hero-notebook.jpg` — About, chapter 1 (placeholder; brief: Indonesian teak furniture workshop, warm daylight, 3:2, ≥2400px wide)
-- `assets/hero-contact-new.jpg` — About, chapter 2 (currently the desk-lamp shot; brief: finished luxury residence or embassy reception room, 3:2)
-- `assets/hero-industries.jpg` — now the Home hero (1408×768; a 2880px-wide re-export would be sharper on large screens)
-- All other heroes are 1376–1600px wide; fine for now, re-export at ~2400px when convenient.
+## Image map (v4.1)
+- Home hero: `hero-home.jpg` (boardroom over the port) · Home sectors band: `hero-industries.jpg` (port aerial)
+- About hero: `hero-lobby.jpg` · chapters: `chapter-2006.jpg` (workshop), `chapter-2010.jpg` (gilded interior), `hero-capabilities.jpg` (boardroom)
+- Capabilities hero: `hero-handshake.jpg` · due-diligence block: `capabilities-desk.jpg`
+- Industries hero: `hero-sectors.jpg` (farmland / solar / port aerial) · Presence hero: `hero-map-wall.jpg` · Contact hero: `hero-contact-new.jpg`
+- All photos are 1264–1408px wide. Fine on laptops; re-export at ~2400px for large retina screens when convenient.
 
 ## Things to review
 - Arabic and Indonesian are AI-drafted throughout (the file says so in its first line). A native-speaker read before you consider the languages "official" is still recommended.
