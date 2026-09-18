@@ -131,7 +131,7 @@ html[dir="rtl"] .nav-links a::after{transform-origin:right}
 .hero{position:relative;min-height:clamp(660px,92vh,880px);display:flex;flex-direction:column;justify-content:flex-end;color:var(--d1);background-color:var(--ink);overflow:hidden}
 .hero-photo{position:absolute;inset:0;background-size:cover;background-position:center 40%;transform:scale(1.02);animation:drift 30s ease-in-out infinite alternate;will-change:transform}
 @keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.09) translateY(-1.2%)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,17,9,.42) 0%,rgba(22,17,9,.24) 22%,rgba(22,17,9,.5) 58%,rgba(22,17,9,.86) 86%,rgba(22,17,9,.94) 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,17,9,.42) 0%,rgba(22,17,9,.24) 22%,rgba(22,17,9,.5) 58%,rgba(22,17,9,.9) 84%,rgba(22,17,9,1) 97%)}
 .hero-in{position:relative;z-index:1;width:100%;max-width:var(--max);margin:0 auto;padding:150px var(--gutter) 44px}
 .hero .eyebrow{color:var(--champagne)}
 .hero h1{text-shadow:0 2px 12px rgba(0,0,0,.3)}
@@ -139,7 +139,7 @@ html[dir="rtl"] .nav-links a::after{transform-origin:right}
 .hero .btn-row{margin-top:30px}
 .hero-stats{position:relative;z-index:1;width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 28px}
 /* the dark bottom of the hero dissolves into the page instead of ending on a line */
-.hero-fade{position:relative;z-index:1;height:clamp(40px,6vw,84px);background:linear-gradient(180deg,rgba(22,17,9,0),var(--page))}
+.hero-fade{position:relative;z-index:1;height:clamp(80px,9vw,130px);background:linear-gradient(180deg,var(--ink) 0%,#2a241c 28%,#6b6459 62%,#c9c5bc 84%,var(--page) 100%)}
 .hero-stats .stats{border-top:1px solid rgba(246,241,231,.26);border-inline-start:0}
 .hero-stats .stat{padding:26px 32px 4px 0;border-inline-end:0}
 .hero-stats .stat + .stat{padding-inline-start:32px;border-inline-start:1px solid rgba(246,241,231,.18)}
