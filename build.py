@@ -13,7 +13,7 @@ MAP_MINI = MAP.replace('id="worldMap"', 'id="worldMapMini"').replace('role="img"
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-         '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600'
+         '<link href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,WONK,opsz,wght@0..100,0..1,9..144,400..600'
          '&family=Public+Sans:wght@400;500;600;700&family=Cairo:wght@400;500;600;700'
          '&family=Markazi+Text:wght@500;600;700&display=swap" rel="stylesheet">')
 
@@ -94,11 +94,15 @@ def nav(active):
 '''
 
 def phero(img, crumb_key, crumb_name, eyebrow_key, eyebrow, title_key, title, lede_key, lede, hid):
-    eb = f'\n    <div class="eyebrow on-dark" data-i18n="{eyebrow_key}">{eyebrow}</div>' if eyebrow_key else ""
+    # the eyebrow slot is always rendered, empty if the page has no eyebrow, so the
+    # breadcrumb, title and lede sit at the same height on every interior page
+    eb = (f'<div class="eyebrow on-dark" data-i18n="{eyebrow_key}">{eyebrow}</div>'
+          if eyebrow_key else '<div class="eyebrow on-dark" aria-hidden="true"></div>')
     return f'''<div class="hero hero-page">
   <div class="hero-photo" style="background-image:url('{img}');"></div>
   <div class="hero-in">
-    {crumbs(crumb_key, crumb_name)}{eb}
+    {crumbs(crumb_key, crumb_name)}
+    {eb}
     <h1 class="h-page" id="{hid}" data-i18n="{title_key}">{title}</h1>
     <p class="lede on-dark" data-i18n="{lede_key}">{lede}</p>
   </div>
@@ -126,8 +130,8 @@ def footer(cta=True, minimal=False):
         </a>
         <p class="f-blurb" data-i18n="footer.blurb">A private investment house, established 2006. Connecting investors to serious projects across international markets.</p>
       </div>
-      <div class="f-col"><h2 class="f-h" data-i18n="footer.explore">Explore</h2><a href="/about.html" data-i18n="nav.about">About</a><br><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><br><a href="/industries.html" data-i18n="nav.industries">Industries</a><br><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
-      <div class="f-col"><h2 class="f-h" data-i18n="footer.connect">Connect</h2><a href="/contact.html" data-i18n="nav.contact">Contact</a><br><a href="{MAILTO}" data-mailto>{EMAIL}</a></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.explore">Explore</h2><div class="f-links"><a href="/about.html" data-i18n="nav.about">About</a><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><a href="/industries.html" data-i18n="nav.industries">Industries</a><a href="/presence.html" data-i18n="nav.presence">Presence</a></div></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.connect">Connect</h2><div class="f-links"><a href="/contact.html" data-i18n="nav.contact">Contact</a><a href="{MAILTO}" data-mailto>{EMAIL}</a></div></div>
     </div>
 ''' if not minimal else ""
     return f'''<footer class="site-footer{" minimal" if minimal else ""}">
@@ -188,13 +192,13 @@ def strip_html():
 def cap_cards():
     out = []
     for i, (t, b) in enumerate(CAPS):
-        out.append(f'      <article class="lrow" id="cap-{i+1}"><h3 data-i18n="cap.t{i+1}.title">{t}</h3><p data-i18n="cap.t{i+1}.body">{b}</p></article>')
+        out.append(f'      <article class="tile" id="cap-{i+1}"><h3 data-i18n="cap.t{i+1}.title">{t}</h3><p data-i18n="cap.t{i+1}.body">{b}</p></article>')
     return "\n".join(out)
 
 def sector_cards():
     out = []
     for i, (t, b) in enumerate(SECTORS):
-        out.append(f'      <article class="lrow lrow-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">{ICONS[i]}</svg><h3 data-i18n="ind.s{i+1}.title">{t}</h3><p data-i18n="ind.s{i+1}.body">{b}</p></article>')
+        out.append(f'      <article class="tile tile-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">{ICONS[i]}</svg><h3 data-i18n="ind.s{i+1}.title">{t}</h3><p data-i18n="ind.s{i+1}.body">{b}</p></article>')
     return "\n".join(out)
 
 def sector_list():
@@ -373,7 +377,7 @@ PAGES["capabilities"] = dict(
 
 <section class="tight" aria-labelledby="caps-h"><div class="wrap">
   <div class="sec-head"><div class="eyebrow" data-i18n="cap.h2.eyebrow">How We Move Capital</div><h2 class="h-sec" id="caps-h" data-i18n="cap.h2.title">Work we do directly, not a menu we outsource.</h2><p class="copy" data-i18n="cap.h2.body">Where a capability requires a specific financial services licence, it is delivered in partnership with an appropriately licensed practitioner or firm.</p></div>
-  <div class="ledger">
+  <div class="tiles">
 {cap_cards()}
   </div>
 </div></section>
@@ -389,7 +393,7 @@ PAGES["industries"] = dict(
 {phero("/assets/hero-sectors.jpg", "nav.industries", "Industries", "ind.eyebrow", "Where We Work", "ind.title", "Sectors we understand.", "ind.lede", "Nine sectors, several of them shaped by the group's own ventures rather than studied from a distance.", "ind-h")}
 <section class="tight" aria-labelledby="sectors-h"><div class="wrap">
   <div class="sec-head"><div class="eyebrow" data-i18n="ind.h2.eyebrow">From the Inside</div><h2 class="h-sec" id="sectors-h" data-i18n="ind.h2.title">The group has operated in these sectors, not only advised on them.</h2></div>
-  <div class="ledger">
+  <div class="tiles">
 {sector_cards()}
   </div>
 </div></section>

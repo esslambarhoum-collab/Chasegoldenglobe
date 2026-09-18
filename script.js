@@ -254,9 +254,9 @@
       }, { threshold: .25 });
       each(document.querySelectorAll('#worldMap, #worldMapMini'), function (svg) { mapIo.observe(svg); });
 
-      each(document.querySelectorAll('.sector-list, .strip, .ledger, .clist, .steps'), function (l) { l.classList.add('stagger'); });
+      each(document.querySelectorAll('.sector-list, .strip, .tiles, .clist, .steps'), function (l) { l.classList.add('stagger'); });
 
-      var targets = document.querySelectorAll('main section .wrap > *:not(.sr-only), main .hero-stats .stats, main .sector-list, main .strip, main .ledger, main .clist');
+      var targets = document.querySelectorAll('main section .wrap > *:not(.sr-only), main .hero-stats .stats, main .sector-list, main .strip, main .tiles, main .clist');
       var io = new IntersectionObserver(function (entries) {
         each(entries, function (en) {
           if (!en.isIntersecting) return;
