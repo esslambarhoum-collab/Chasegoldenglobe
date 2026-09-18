@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Chase Golden Globe — static site builder (v4).
+"""Chase Golden Globe — static site builder (v5).
 Run `python3 build.py` from the site root. Shared head, nav and footer live
 here; each page supplies its title, meta, hero and body. Output is written
 next to this file. The world map SVG is read from map.svg.
@@ -56,6 +56,12 @@ def head(p):
         h += f'<script type="application/ld+json">{s}</script>\n'
     return h + "</head>\n"
 
+ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>'
+RELAY = f'<span class="relay" aria-hidden="true">{ARROW}{ARROW}</span>'
+EMAIL = "info@chasegoldenglobe.com.au"
+MAILTO = ("mailto:" + EMAIL + "?subject=Enquiry%3A%20%5Bproject%20name%5D"
+          "&amp;body=Project%3A%0AMarket%20%2F%20country%3A%0AStage%3A%0ACapital%20sought%3A%0A")
+
 def crumbs(name_key, name):
     return (f'<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/" data-i18n="crumb.home">Home</a></li>'
             f'<li aria-hidden="true">/</li><li aria-current="page" data-i18n="{name_key}">{name}</li></ol></nav>')
@@ -68,7 +74,7 @@ def breadcrumb_schema(name, slug):
 def nav(active):
     items = ""
     for s, l in NAV_ITEMS:
-        cls = ' class="active"' if s == active else ""
+        cls = ' class="active" aria-current="page"' if s == active else ""
         items += f'    <a href="/{s}.html"{cls} data-i18n="nav.{s}">{l}</a>\n'
     return f'''<a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 <nav class="site-nav" id="siteNav" aria-label="Primary">
@@ -80,7 +86,7 @@ def nav(active):
   <div class="nav-links" id="navLinks">
 {items}    <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true" class="active">EN</button>
-      <button type="button" data-lang="ar" lang="ar" aria-label="العربية" aria-pressed="false">ع</button>
+      <button type="button" data-lang="ar" lang="ar" aria-label="العربية" aria-pressed="false">عربي</button>
       <button type="button" data-lang="id" lang="id" aria-label="Bahasa Indonesia" aria-pressed="false">ID</button>
     </div>
   </div>
@@ -88,36 +94,40 @@ def nav(active):
 '''
 
 def phero(img, crumb_key, crumb_name, eyebrow_key, eyebrow, title_key, title, lede_key, lede, hid):
-    return f'''<section class="tight"><div class="wrap">
-  <div class="phero" style="background-image:url('{img}');"><div class="phero-in">
-    {crumbs(crumb_key, crumb_name)}
-    <div class="eyebrow on-dark" data-i18n="{eyebrow_key}">{eyebrow}</div>
+    eb = f'\n    <div class="eyebrow on-dark" data-i18n="{eyebrow_key}">{eyebrow}</div>' if eyebrow_key else ""
+    return f'''<div class="hero hero-page">
+  <div class="hero-photo" style="background-image:url('{img}');"></div>
+  <div class="hero-in">
+    {crumbs(crumb_key, crumb_name)}{eb}
     <h1 class="h-page" id="{hid}" data-i18n="{title_key}">{title}</h1>
     <p class="lede on-dark" data-i18n="{lede_key}">{lede}</p>
-  </div></div>
-</div></section>
+  </div>
+</div>
 '''
 
 def footer(cta=True, minimal=False):
-    cta_html = '''    <div class="f-cta">
+    cta_html = f'''    <div class="f-cta">
       <div>
         <div class="eyebrow on-dark" data-i18n="home.cta.eyebrow">Get in Touch</div>
         <h2 data-i18n="home.cta.title">Begin the conversation.</h2>
         <p data-i18n="home.cta.body">For matters of investment, trade or partnership, enquiries are received directly.</p>
       </div>
-      <a class="btn btn-brass" href="/contact.html" data-i18n="home.cta.btn">Contact Us</a>
+      <div class="f-mail">
+        <div class="email-row"><a class="email-big" href="{MAILTO}" data-mailto>{EMAIL}</a><button type="button" class="copybtn" data-email="{EMAIL}" data-i18n="contact.copy">Copy</button></div>
+        <p class="f-nda" data-i18n="home.cta.nda">In confidence. A non-disclosure agreement can be in place before any detail is shared.</p>
+      </div>
     </div>
 ''' if cta else ""
-    top = '''    <div class="f-top">
+    top = f'''    <div class="f-top">
       <div>
         <a class="footer-logo" href="/" aria-label="Chase Golden Globe — Home">
-          <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="40" height="28"></picture>
+          <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="40" height="28" loading="lazy"></picture>
           <span>Chase Golden Globe</span>
         </a>
         <p class="f-blurb" data-i18n="footer.blurb">A private investment house, established 2006. Connecting investors to serious projects across international markets.</p>
       </div>
-      <div class="f-col"><h4 data-i18n="footer.explore">Explore</h4><a href="/about.html" data-i18n="nav.about">About</a><br><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><br><a href="/industries.html" data-i18n="nav.industries">Industries</a><br><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
-      <div class="f-col"><h4 data-i18n="footer.connect">Connect</h4><a href="/contact.html" data-i18n="nav.contact">Contact</a><br><a href="mailto:info@chasegoldenglobe.com.au">info@chasegoldenglobe.com.au</a></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.explore">Explore</h2><a href="/about.html" data-i18n="nav.about">About</a><br><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><br><a href="/industries.html" data-i18n="nav.industries">Industries</a><br><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.connect">Connect</h2><a href="/contact.html" data-i18n="nav.contact">Contact</a><br><a href="{MAILTO}" data-mailto>{EMAIL}</a></div>
     </div>
 ''' if not minimal else ""
     return f'''<footer class="site-footer{" minimal" if minimal else ""}">
@@ -172,19 +182,19 @@ COUNTRIES = ["Australia", "Indonesia", "Saudi Arabia", "Qatar", "United Arab Emi
              "United Kingdom", "Switzerland", "Luxembourg"]
 
 def strip_html():
-    return "".join(f'      <a href="/capabilities.html"><span data-i18n="cap.t{i+1}.title">{t}</span> <span aria-hidden="true">→</span></a>\n'
+    return "".join(f'      <a href="/capabilities.html#cap-{i+1}"><span data-i18n="cap.t{i+1}.title">{t}</span>{RELAY}</a>\n'
                    for i, (t, _) in enumerate(CAPS))
 
 def cap_cards():
     out = []
     for i, (t, b) in enumerate(CAPS):
-        out.append(f'      <div class="card"><div class="n" aria-hidden="true">{i+1:02d}</div><h3 data-i18n="cap.t{i+1}.title">{t}</h3><p data-i18n="cap.t{i+1}.body">{b}</p></div>')
+        out.append(f'      <article class="entry" id="cap-{i+1}"><h3 data-i18n="cap.t{i+1}.title">{t}</h3><p data-i18n="cap.t{i+1}.body">{b}</p></article>')
     return "\n".join(out)
 
 def sector_cards():
     out = []
     for i, (t, b) in enumerate(SECTORS):
-        out.append(f'      <div class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">{ICONS[i]}</svg><h3 data-i18n="ind.s{i+1}.title">{t}</h3><p data-i18n="ind.s{i+1}.body">{b}</p></div>')
+        out.append(f'      <article class="entry entry-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">{ICONS[i]}</svg><h3 data-i18n="ind.s{i+1}.title">{t}</h3><p data-i18n="ind.s{i+1}.body">{b}</p></article>')
     return "\n".join(out)
 
 def sector_list():
@@ -208,38 +218,39 @@ PAGES["index"] = dict(
     schema=['{"@context":"https://schema.org","@type":"Organization","@id":"' + SITE + '/#organization","name":"Chase Golden Globe","legalName":"Chase Golden Globe Pty Ltd","url":"' + SITE + '/","logo":"' + SITE + '/assets/logo.png","foundingDate":"2006","email":"info@chasegoldenglobe.com.au","description":"Chase Golden Globe is a private international business and investment platform that began by trading fine furniture between Indonesia and Australia in 2006, and today connects investors to projects across international markets.","founder":{"@type":"Person","name":"Fouad Barhoum"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"areaServed":["AU","ID","SA","QA","AE","DZ","EG","GB","CH","LU"]}'],
     active=None,
     body=f'''<main id="main">
-<div class="hero" style="background-image:url('/assets/hero-home.jpg');">
+<div class="hero">
+  <div class="hero-photo" style="background-image:url('/assets/hero-home.jpg');"></div>
   <div class="hero-in">
     <div class="eyebrow" data-i18n="hero.eyebrow">Private Investment House · Est. 2006</div>
     <h1 class="h-home" data-i18n="hero.title">From the docks to the deal room.</h1>
     <p class="lede on-dark" data-i18n="hero.lede">Chase Golden Globe began by trading fine furniture between Indonesia and Australia in 2006. Today it connects investors to projects across international markets, from real estate to energy to trade.</p>
-    <div class="btn-row"><a class="btn btn-brass" href="/about.html" data-i18n="hero.btn1">Our Story</a><a class="btn btn-line-dark" href="/contact.html" data-i18n="hero.btn2">Start a Conversation</a></div>
+    <div class="btn-row"><a class="btn btn-brass" href="/contact.html"><span data-i18n="hero.btn2">Begin a Conversation</span>{RELAY}</a><a class="btn btn-line-dark" href="/about.html" data-i18n="hero.btn1">Our Story</a></div>
   </div>
+  <div class="hero-stats">
+    <h2 class="sr-only" data-i18n="home.stats.heading">By the Numbers</h2>
+    <div class="stats">
+      <div class="stat"><div class="stat-l" data-i18n="home.stats.deals.label">Deals Facilitated</div><div class="stat-n"><bdi data-count="3.2" data-prefix="$" data-suffix="B+" data-dp="1">$3.2B+</bdi></div><div class="stat-u" data-i18n="home.stats.deals.unit">USD, cumulative deal value</div></div>
+      <div class="stat"><div class="stat-l" data-i18n="home.stats.years.label">In Operation</div><div class="stat-n"><span data-count="20">20</span></div><div class="stat-u" data-i18n="home.stats.years.unit">Years, continuously since 2006</div></div>
+      <div class="stat"><div class="stat-l" data-i18n="home.stats.countries.label">Global Reach</div><div class="stat-n"><span data-count="10">10</span></div><div class="stat-u" data-i18n="home.stats.countries.unit">Countries across four regions, including head office</div></div>
+    </div>
+  </div>
+  <div class="hero-fade" aria-hidden="true"></div>
 </div>
-
-<div class="band"><div class="wrap">
-  <h2 class="sr-only" data-i18n="home.stats.heading">By the Numbers</h2>
-  <div class="stats">
-    <div class="stat"><div class="stat-l" data-i18n="home.stats.deals.label">Deals Facilitated</div><div class="stat-n">$3.2B+</div><div class="stat-u" data-i18n="home.stats.deals.unit">USD, cumulative deal value</div></div>
-    <div class="stat"><div class="stat-l" data-i18n="home.stats.years.label">In Operation</div><div class="stat-n">20</div><div class="stat-u" data-i18n="home.stats.years.unit">Years, continuously since 2006</div></div>
-    <div class="stat"><div class="stat-l" data-i18n="home.stats.countries.label">Global Reach</div><div class="stat-n">10</div><div class="stat-u" data-i18n="home.stats.countries.unit">Countries across four regions, including head office</div></div>
-  </div>
-</div></div>
 
 <section aria-labelledby="story-h"><div class="wrap">
   <h2 class="sr-only" id="story-h" data-i18n="home.story.heading">The Story</h2>
-  <div class="row2">
-    <div class="panel panel-dark">
-      <div class="eyebrow on-dark" data-i18n="home.origin.eyebrow">Our Origin</div>
+  <div class="split">
+    <div class="split-col">
+      <div class="eyebrow" data-i18n="home.origin.eyebrow">Our Origin</div>
       <h3 data-i18n="home.origin.title">A trade in craftsmanship, before it was a trade in capital.</h3>
       <p data-i18n="home.origin.body">In 2006, Chase Golden Globe began by importing fine furniture and handicrafts from Indonesia into Australia, starting with a small showroom before growing into an international trading network.</p>
-      <a class="arrow" href="/about.html" data-i18n="home.origin.link">Read the full story →</a>
+      <a class="arrow" href="/about.html"><span data-i18n="home.origin.link">Read the full story</span>{RELAY}</a>
     </div>
-    <div class="panel panel-khaki">
-      <div class="eyebrow on-khaki" data-i18n="home.today.eyebrow">Today</div>
+    <div class="split-col">
+      <div class="eyebrow" data-i18n="home.today.eyebrow">Today</div>
       <h3 data-i18n="home.today.title">Investors on one side. Projects on the other.</h3>
       <p data-i18n="home.today.body">Fouad Barhoum now travels the world connecting investors to projects, sitting between the two: due diligence, investor reporting and pitch preparation, so capital understands the risk and projects are ready to receive it.</p>
-      <a class="arrow" href="/capabilities.html" data-i18n="home.today.link">See what we do →</a>
+      <a class="arrow" href="/capabilities.html"><span data-i18n="home.today.link">See what we do</span>{RELAY}</a>
     </div>
   </div>
 </div></section>
@@ -257,7 +268,7 @@ PAGES["index"] = dict(
         <div class="eyebrow on-dark" data-i18n="nav.industries">Industries</div>
         <h2 class="h-sec" id="ind-h" data-i18n="home.ind.title">Sectors we know from the inside.</h2>
         <p class="lede on-dark" data-i18n="home.ind.body">Several of these go back to the group's own ventures — furniture export, food and agriculture, luxury property — not sectors studied from a distance.</p>
-        <a class="btn btn-brass" href="/industries.html" data-i18n="home.ind.btn">All nine sectors</a>
+        <a class="arrow on-dark" href="/industries.html"><span data-i18n="home.ind.btn">All nine sectors</span>{RELAY}</a>
       </div>
       <div class="sector-list">
 {sector_list()}      </div>
@@ -286,7 +297,7 @@ PAGES["about"] = dict(
     schema=[breadcrumb_schema("About", "about"),
             '{"@context":"https://schema.org","@type":"AboutPage","url":"' + SITE + '/about.html","mainEntity":{"@type":"Organization","name":"Chase Golden Globe","founder":{"@type":"Person","name":"Fouad Barhoum"},"foundingDate":"2006"}}'],
     body=f'''<main id="main">
-{phero("/assets/hero-lobby.jpg", "nav.about", "About", "about.eyebrow", "About", "about.title", "Our story.", "about.lede", "From a small furniture showroom in 2006 to an international business and investment platform, in three chapters.", "about-h")}
+{phero("/assets/hero-lobby.jpg", "nav.about", "About", None, None, "about.title", "Our story.", "about.lede", "From a small furniture showroom in 2006 to an international business and investment platform, in three chapters.", "about-h")}
 <section class="tight" aria-labelledby="chapters-h"><div class="wrap">
   <h2 class="sr-only" id="chapters-h" data-i18n="about.chapters">Chapters</h2>
   <div class="timeline" role="tablist" aria-label="Company history">
@@ -295,23 +306,27 @@ PAGES["about"] = dict(
     <button type="button" role="tab" id="tab-3" aria-controls="chapter-3" aria-selected="false" tabindex="-1"><b data-i18n="about.tl3.year">Today</b><span data-i18n="about.tab3">Investment Platform</span></button>
   </div>
   <div class="chapter active" id="chapter-1" role="tabpanel" aria-labelledby="tab-1">
-    <div class="photo" style="background-image:url('/assets/chapter-2006.jpg');" role="img" aria-label="A craftsman carving a teak panel in an Indonesian furniture workshop"></div>
-    <div class="panel panel-dark"><div class="eyebrow on-dark" data-i18n="about.ch1.eyebrow">2006 · Indonesia to Australia</div><h2 data-i18n="about.ch1.title">A name inspired by quality and value.</h2><p data-i18n="about.ch1.body">In 2006, Chase Golden Globe began its first trading operations, importing fine furniture and handicrafts from Indonesia into the Australian market. The name was inspired by the Golden Globe grape — distinctive, refined, and naturally associated with quality and value. What started as a small showroom gradually expanded into a broader trading network built on trust, discipline and long-term relationships.</p></div>
+    <figure class="photo"><div class="photo-img" style="background-image:url('/assets/chapter-2006.jpg');" role="img" aria-label="A craftsman carving a teak panel in an Indonesian furniture workshop"></div><figcaption data-i18n="about.ch1.cap">Hand-carved teak, the trade where the house began.</figcaption></figure>
+    <div class="chapter-text"><div class="eyebrow" data-i18n="about.ch1.eyebrow">2006 · Indonesia to Australia</div><h2 data-i18n="about.ch1.title">A name inspired by quality and value.</h2><p data-i18n="about.ch1.body">In 2006, Chase Golden Globe began its first trading operations, importing fine furniture and handicrafts from Indonesia into the Australian market. The name was inspired by the Golden Globe grape — distinctive, refined, and naturally associated with quality and value. What started as a small showroom gradually expanded into a broader trading network built on trust, discipline and long-term relationships.</p></div>
   </div>
   <div class="chapter" id="chapter-2" role="tabpanel" aria-labelledby="tab-2" hidden>
-    <div class="photo" style="background-image:url('/assets/chapter-2010.jpg');" role="img" aria-label="A gilded reception room with chandelier and marble floor"></div>
-    <div class="panel panel-khaki"><div class="eyebrow on-khaki" data-i18n="about.ch2.eyebrow">2010 · Europe, the Middle East, Asia</div><h2 data-i18n="about.ch2.title">From a showroom to an international network.</h2><p data-i18n="about.ch2.body">As the business grew, Chase Golden Globe began re-exporting selected Indonesian furniture and handicraft to markets across Europe and the Middle East, then expanded into food and agricultural products, including Australian honey and premium dairy, supplying Indonesia, Asia and international markets. In 2010 a new chapter began through a venture with Royalty Prussia, extending into high-end interior design, luxury real estate, premium renovations and prestigious properties including embassies and palaces around the world.</p></div>
+    <figure class="photo"><div class="photo-img" style="background-image:url('/assets/chapter-2010.jpg');" role="img" aria-label="A gilded reception room with chandelier and marble floor"></div><figcaption data-i18n="about.ch2.cap">Interiors and luxury property, from 2010.</figcaption></figure>
+    <div class="chapter-text"><div class="eyebrow" data-i18n="about.ch2.eyebrow">2010 · Europe, the Middle East, Asia</div><h2 data-i18n="about.ch2.title">From a showroom to an international network.</h2><p data-i18n="about.ch2.body">As the business grew, Chase Golden Globe began re-exporting selected Indonesian furniture and handicraft to markets across Europe and the Middle East, then expanded into food and agricultural products, including Australian honey and premium dairy, supplying Indonesia, Asia and international markets. In 2010 a new chapter began through a venture with Royalty Prussia, extending into high-end interior design, luxury real estate, premium renovations and prestigious properties including embassies and palaces around the world.</p></div>
   </div>
   <div class="chapter" id="chapter-3" role="tabpanel" aria-labelledby="tab-3" hidden>
-    <div class="photo" style="background-image:url('/assets/hero-capabilities.jpg');" role="img" aria-label="A boardroom overlooking a city at dusk"></div>
-    <div class="panel panel-dark"><div class="eyebrow on-dark" data-i18n="about.ch3.eyebrow">Today · Worldwide</div><h2 data-i18n="about.ch3.title">A broader international business and investment network.</h2><p data-i18n="about.ch3.body">Today, Chase Golden Globe operates as an international business and investment platform. Fouad Barhoum travels the world connecting investors to projects, drawing on relationships built across investment and finance, real estate, oil and gas, mining, international trade and strategic partnerships. The company has worked closely with investment authorities and government-linked institutions in Indonesia, and its network extends to sovereign wealth funds, state-owned companies and private investors worldwide.</p></div>
+    <figure class="photo"><div class="photo-img" style="background-image:url('/assets/hero-capabilities.jpg');" role="img" aria-label="A boardroom overlooking a city at dusk"></div><figcaption data-i18n="about.ch3.cap">Connecting investors to projects, today.</figcaption></figure>
+    <div class="chapter-text"><div class="eyebrow" data-i18n="about.ch3.eyebrow">Today · Worldwide</div><h2 data-i18n="about.ch3.title">A broader international business and investment network.</h2><p data-i18n="about.ch3.body">Today, Chase Golden Globe operates as an international business and investment platform. Fouad Barhoum travels the world connecting investors to projects, drawing on relationships built across investment and finance, real estate, oil and gas, mining, international trade and strategic partnerships. The company has worked closely with investment authorities and government-linked institutions in Indonesia, and its network extends to sovereign wealth funds, state-owned companies and private investors worldwide.</p></div>
   </div>
 </div></section>
 
 <section class="tight" aria-labelledby="philosophy-h"><div class="wrap">
-  <div class="row2">
-    <div class="panel panel-khaki"><div class="eyebrow on-khaki" data-i18n="about.philosophy.eyebrow">Our Philosophy</div><h2 id="philosophy-h" data-i18n="about.philosophy.title">Start small. Think big. Go fast.</h2><p data-i18n="about.philosophy.body">The journey has included successes, challenges, setbacks and failures. Failure is not regarded as defeat; it is experience, and a lesson that strengthens the next decision. Sustainable success comes from discipline and consistency, not shortcuts. Markets change, opportunities change, people change. Integrity, professionalism and trust must remain constant.</p></div>
-    <div class="panel panel-dark"><div class="eyebrow on-dark" data-i18n="about.trust.eyebrow">Trust Is Our Capital</div><h2 data-i18n="about.trust.title">Trust takes years to build and seconds to lose.</h2><p data-i18n="about.trust.body">For this reason, Chase Golden Globe operates with discipline, discretion and accountability. We do not pursue every opportunity. We focus on those with a credible foundation, a clear commercial purpose and the potential to create real value for all parties.</p></div>
+  <div class="creed">
+    <div class="eyebrow" data-i18n="about.philosophy.eyebrow">Our Philosophy</div>
+    <h2 class="creed-line" id="philosophy-h" data-i18n="about.philosophy.title">Start small. Think big. Go fast.</h2>
+    <div class="split">
+    <div class="split-col"><p data-i18n="about.philosophy.body">The journey has included successes, challenges, setbacks and failures. Failure is not regarded as defeat; it is experience, and a lesson that strengthens the next decision. Sustainable success comes from discipline and consistency, not shortcuts. Markets change, opportunities change, people change. Integrity, professionalism and trust must remain constant.</p></div>
+    <div class="split-col"><div class="eyebrow" data-i18n="about.trust.eyebrow">Trust Is Our Capital</div><h3 data-i18n="about.trust.title">Trust takes years to build and seconds to lose.</h3><p data-i18n="about.trust.body">For this reason, Chase Golden Globe operates with discipline, discretion and accountability. We do not pursue every opportunity. We focus on those with a credible foundation, a clear commercial purpose and the potential to create real value for all parties.</p></div>
+    </div>
   </div>
 </div></section>
 
@@ -340,8 +355,8 @@ PAGES["capabilities"] = dict(
     schema=[breadcrumb_schema("Capabilities", "capabilities")],
     body=f'''<main id="main">
 {phero("/assets/hero-handshake.jpg", "nav.capabilities", "Capabilities", "cap.eyebrow", "What We Do", "cap.title", "Core capabilities.", "cap.lede", "Nine capabilities that take a project from a conversation to a bankable, fundable proposition.", "cap-h")}
-<section class="tight" aria-labelledby="core-h"><div class="wrap">
-  <div class="panel panel-dark core">
+<section class="core-band" aria-labelledby="core-h"><div class="wrap">
+  <div class="core">
     <div class="core-text">
       <div class="eyebrow on-dark" data-i18n="cap.core.eyebrow">Between Opportunity and Capital</div>
       <h2 class="h-sec" id="core-h" data-i18n="cap.core.title">The work that sits underneath every engagement.</h2>
@@ -358,7 +373,7 @@ PAGES["capabilities"] = dict(
 
 <section class="tight" aria-labelledby="caps-h"><div class="wrap">
   <div class="sec-head"><div class="eyebrow" data-i18n="cap.h2.eyebrow">How We Move Capital</div><h2 class="h-sec" id="caps-h" data-i18n="cap.h2.title">Work we do directly, not a menu we outsource.</h2><p class="copy" data-i18n="cap.h2.body">Where a capability requires a specific financial services licence, it is delivered in partnership with an appropriately licensed practitioner or firm.</p></div>
-  <div class="cards3">
+  <div class="entries">
 {cap_cards()}
   </div>
 </div></section>
@@ -374,7 +389,7 @@ PAGES["industries"] = dict(
 {phero("/assets/hero-sectors.jpg", "nav.industries", "Industries", "ind.eyebrow", "Where We Work", "ind.title", "Sectors we understand.", "ind.lede", "Nine sectors, several of them shaped by the group's own ventures rather than studied from a distance.", "ind-h")}
 <section class="tight" aria-labelledby="sectors-h"><div class="wrap">
   <div class="sec-head"><div class="eyebrow" data-i18n="ind.h2.eyebrow">From the Inside</div><h2 class="h-sec" id="sectors-h" data-i18n="ind.h2.title">The group has operated in these sectors, not only advised on them.</h2></div>
-  <div class="cards3">
+  <div class="entries">
 {sector_cards()}
   </div>
 </div></section>
@@ -390,7 +405,7 @@ PAGES["presence"] = dict(
 {phero("/assets/hero-map-wall.jpg", "nav.presence", "Presence", "pres.eyebrow", "Global Presence", "pres.title", "Where we operate.", "pres.lede", "Headquartered in Sydney since 2006, with an established presence in ten countries across the Gulf, North Africa, Europe and Southeast Asia.", "pres-h")}
 <section class="tight" aria-labelledby="loc-h"><div class="wrap">
   <h2 class="sr-only" id="loc-h" data-i18n="pres.key">Key Locations</h2>
-  <div class="office3">
+  <div class="office3 accordion">
     <div class="office" style="background-image:url('/assets/office-australia.jpg');"><div><div class="eyebrow on-dark" data-i18n="pres.office.eyebrow">Head Office</div><h3 data-i18n="country.Australia">Australia</h3><p data-i18n="pres.office.body">Headquartered in Sydney, New South Wales, operating continuously since 2006.</p></div></div>
     <div class="office" style="background-image:url('/assets/office-indonesia.jpg');"><div><div class="eyebrow on-dark" data-i18n="pres.idn.eyebrow">Where It Began</div><h3 data-i18n="country.Indonesia">Indonesia</h3><p data-i18n="pres.idn.body">First trading operations began here in 2006; relationships with investment authorities and government-linked institutions continue today.</p></div></div>
     <div class="office" style="background-image:url('/assets/office-algeria.jpg');"><div><div class="eyebrow on-dark" data-i18n="pres.dza.eyebrow">Founder's Roots</div><h3 data-i18n="country.Algeria">Algeria</h3><p data-i18n="pres.dza.body">An active base for cross-border trade and investment across North Africa.</p></div></div>
@@ -400,9 +415,10 @@ PAGES["presence"] = dict(
 <section aria-labelledby="map-h"><div class="wrap">
   <div class="sec-head"><div class="eyebrow" data-i18n="pres.map.eyebrow">Ten Countries</div><h2 class="h-sec" id="map-h" data-i18n="pres.map.title">Select a country to see its role.</h2></div>
   <div class="map-block">
-    <div class="map-wrap">{MAP}</div>
+    <div class="map-wrap">{MAP.replace('role="img"', 'role="group"', 1)}</div>
     <div class="map-side">
-      <div class="map-stats"><div><b>10</b><span data-i18n="pres.map.stat2">Countries, incl. HQ</span></div><div><b>4</b><span data-i18n="pres.map.stat1">Regions</span></div></div>
+      <div class="map-stats"><div><b><span data-count="10">10</span></b><span data-i18n="pres.map.stat2">Countries, incl. HQ</span></div><div><b><span data-count="4">4</span></b><span data-i18n="pres.map.stat1">Regions</span></div></div>
+      <div class="region-key" aria-hidden="true"><span><i></i>Head office</span><span><i></i>Southeast Asia</span><span><i></i>The Gulf</span><span><i></i>North Africa &amp; Europe</span></div>
       <div class="ccard" id="countryCard" aria-live="polite">
         <div class="eyebrow on-dark" data-role data-fallback-role="Head Office">Head Office</div>
         <h3 data-name>Australia</h3>
@@ -431,17 +447,17 @@ PAGES["contact"] = dict(
       <div class="eyebrow on-dark" data-i18n="contact.h2.eyebrow">Tell Us About the Project</div>
       <h2 id="contact-h2" data-i18n="contact.h2.title">The most direct way to reach us is by email.</h2>
       <p data-i18n="contact.h2.body">Tell us briefly about the project, the market it sits in and what stage it is at. We reply personally.</p>
-      <div class="email"><a href="mailto:info@chasegoldenglobe.com.au">info@chasegoldenglobe.com.au</a><button type="button" class="copybtn" id="copyEmail" data-email="info@chasegoldenglobe.com.au" data-i18n="contact.copy">Copy</button></div>
+      <div class="email"><a href="{MAILTO}" data-mailto>{EMAIL}</a><button type="button" class="copybtn" id="copyEmail" data-email="{EMAIL}" data-i18n="contact.copy">Copy</button></div>
       <p class="note" data-i18n="contact.office">Head office: Sydney, New South Wales, Australia</p>
-      <a class="btn btn-brass" href="mailto:info@chasegoldenglobe.com.au" data-i18n="contact.btn">Send an Enquiry</a>
+      <a class="btn btn-brass" href="{MAILTO}" data-mailto><span data-i18n="contact.btn">Email Us</span>{RELAY}</a>
     </div>
-    <div class="panel panel-khaki">
-      <div class="eyebrow on-khaki" data-i18n="contact.confidentiality.eyebrow">In Confidence</div>
+    <div class="confide">
+      <div class="eyebrow" data-i18n="contact.confidentiality.eyebrow">In Confidence</div>
       <h2 data-i18n="contact.confidentiality.title">Every conversation stays private.</h2>
       <p data-i18n="contact.confidentiality.body">Enquiries are handled with discretion from the first message. A non-disclosure agreement can be put in place before any detail is shared, where the matter calls for it. Only the people directly involved review what you send, and nothing is passed to a third party, partner or other client without your consent.</p>
       <div class="meta-inline">
-        <div><div class="eyebrow on-khaki" data-i18n="contact.confidentiality.f1.label">Discretion</div><p data-i18n="contact.confidentiality.f1.value">From the first message</p></div>
-        <div><div class="eyebrow on-khaki" data-i18n="contact.confidentiality.f2.label">NDA</div><p data-i18n="contact.confidentiality.f2.value">Available before details are shared</p></div>
+        <div><div class="eyebrow" data-i18n="contact.confidentiality.f1.label">Discretion</div><p data-i18n="contact.confidentiality.f1.value">From the first message</p></div>
+        <div><div class="eyebrow" data-i18n="contact.confidentiality.f2.label">NDA</div><p data-i18n="contact.confidentiality.f2.value">Available before details are shared</p></div>
       </div>
     </div>
   </div>
@@ -455,13 +471,13 @@ PAGES["legal"] = dict(
     desc="Licensing disclosure, privacy notice and terms of use for the Chase Golden Globe website.",
     schema=[breadcrumb_schema("Legal & Privacy", "legal")],
     body=f'''<main id="main" class="legal">
-<section class="tight"><div class="wrap">
-  <div class="phero phero-plain" style="min-height:0;"><div class="phero-in">
+<div class="hero hero-page hero-plain">
+  <div class="hero-in">
     {crumbs("footer.legal", "Legal &amp; Privacy")}
     <div class="eyebrow on-dark" data-i18n="legal.eyebrow">Legal &amp; Privacy</div>
     <h1 class="h-page" data-i18n="legal.title">A plain-language summary of how this site operates.</h1>
-  </div></div>
-</div></section>
+  </div>
+</div>
 <section class="tight"><div class="wrap">
   <div class="legal-block">
     <div class="eyebrow" data-i18n="legal.licensing.eyebrow">Financial Services Disclosure</div>
@@ -484,7 +500,7 @@ PAGES["legal"] = dict(
     <div class="eyebrow" data-i18n="legal.questions.eyebrow">Questions</div>
     <h2 data-i18n="legal.questions.title">Have a question about this page?</h2>
     <p class="copy" data-i18n="legal.questions.body">If you have any questions about licensing, privacy, or how this site operates, get in touch directly.</p>
-    <p class="copy" style="margin-top:14px"><a href="mailto:info@chasegoldenglobe.com.au" style="text-decoration:underline;text-underline-offset:3px">info@chasegoldenglobe.com.au</a></p>
+    <p class="copy legal-mail"><a class="u" href="mailto:info@chasegoldenglobe.com.au">info@chasegoldenglobe.com.au</a></p>
     <p class="legal-updated" data-i18n="legal.updated">Last updated: September 2026</p>
   </div>
 </div></section>
@@ -495,13 +511,13 @@ PAGES["404"] = dict(
     slug="404", active=None, noindex=True, minimal=True,
     title="Page Not Found | Chase Golden Globe",
     desc="The page you are looking for may have moved or been renamed.",
-    body='''<main id="main">
+    body=f'''<main id="main">
 <section><div class="wrap error-page">
   <div class="panel panel-dark">
     <div class="eyebrow on-dark">404</div>
     <h1 class="h-page" data-i18n="error404.title">This page does not exist.</h1>
     <p style="margin-top:14px" data-i18n="error404.body">The page you are looking for may have moved or been renamed. Start again from the homepage, or go straight to what you need below.</p>
-    <div class="btn-row"><a class="btn btn-brass" href="/" data-i18n="error404.home">Return Home</a><a class="btn btn-line-dark" href="/contact.html" data-i18n="home.cta.btn">Contact Us</a></div>
+    <div class="btn-row"><a class="btn btn-brass" href="/"><span data-i18n="error404.home">Return Home</span>{RELAY}</a><a class="btn btn-line-dark" href="/contact.html" data-i18n="home.cta.btn">Begin a Conversation</a></div>
   </div>
 </div></section>
 </main>
@@ -510,7 +526,8 @@ PAGES["404"] = dict(
 # --------------------------------------------------------------------------
 if __name__ == "__main__":
     for slug, p in PAGES.items():
-        html = head(p) + "<body>\n" + nav(p.get("active")) + p["body"] + footer(cta=not p.get("no_cta") and not p.get("minimal"), minimal=p.get("minimal", False))
+        body_cls = "" if p.get("minimal") else ' class="has-hero"'
+        html = head(p) + f"<body{body_cls}>\n" + nav(p.get("active")) + p["body"] + footer(cta=not p.get("no_cta") and not p.get("minimal"), minimal=p.get("minimal", False))
         with open(os.path.join(HERE, f"{slug}.html"), "w", encoding="utf-8") as f:
             f.write(html)
         print("wrote", slug + ".html", len(html) // 1024, "KB")
@@ -523,5 +540,5 @@ if __name__ == "__main__":
     for slug in PAGES:
         used |= set(re.findall(r'data-i18n="([^"]+)"', open(os.path.join(HERE, f"{slug}.html"), encoding="utf-8").read()))
     missing = sorted(k for k in used if k not in i18n_src.EN)
-    unused = sorted(k for k in i18n_src.EN if k not in used and not k.startswith("pres.c.") and k not in ("nav.close", "contact.copied"))
+    unused = sorted(k for k in i18n_src.EN if k not in used and not k.startswith("pres.c.") and k not in ("nav.close", "contact.copied", "contact.copyfail", "mail.subject", "mail.body"))
     print("keys used:", len(used), "| missing from EN:", missing or "none", "| unused:", unused or "none")

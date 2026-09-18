@@ -28,7 +28,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://chasegoldenglobe.com.au/"},{"@type":"ListItem","position":2,"name":"About","item":"https://chasegoldenglobe.com.au/about.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","url":"https://chasegoldenglobe.com.au/about.html","mainEntity":{"@type":"Organization","name":"Chase Golden Globe","founder":{"@type":"Person","name":"Fouad Barhoum"},"foundingDate":"2006"}}</script>
 </head>
-<body>
+<body class="has-hero">
 <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 <nav class="site-nav" id="siteNav" aria-label="Primary">
   <a class="nav-logo" href="/" aria-label="Chase Golden Globe — Home">
@@ -37,27 +37,27 @@
   </a>
   <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
   <div class="nav-links" id="navLinks">
-    <a href="/about.html" class="active" data-i18n="nav.about">About</a>
+    <a href="/about.html" class="active" aria-current="page" data-i18n="nav.about">About</a>
     <a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a>
     <a href="/industries.html" data-i18n="nav.industries">Industries</a>
     <a href="/presence.html" data-i18n="nav.presence">Presence</a>
     <a href="/contact.html" data-i18n="nav.contact">Contact</a>
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true" class="active">EN</button>
-      <button type="button" data-lang="ar" lang="ar" aria-label="العربية" aria-pressed="false">ع</button>
+      <button type="button" data-lang="ar" lang="ar" aria-label="العربية" aria-pressed="false">عربي</button>
       <button type="button" data-lang="id" lang="id" aria-label="Bahasa Indonesia" aria-pressed="false">ID</button>
     </div>
   </div>
 </nav>
 <main id="main">
-<section class="tight"><div class="wrap">
-  <div class="phero" style="background-image:url('/assets/hero-lobby.jpg');"><div class="phero-in">
+<div class="hero hero-page">
+  <div class="hero-photo" style="background-image:url('/assets/hero-lobby.jpg');"></div>
+  <div class="hero-in">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/" data-i18n="crumb.home">Home</a></li><li aria-hidden="true">/</li><li aria-current="page" data-i18n="nav.about">About</li></ol></nav>
-    <div class="eyebrow on-dark" data-i18n="about.eyebrow">About</div>
     <h1 class="h-page" id="about-h" data-i18n="about.title">Our story.</h1>
     <p class="lede on-dark" data-i18n="about.lede">From a small furniture showroom in 2006 to an international business and investment platform, in three chapters.</p>
-  </div></div>
-</div></section>
+  </div>
+</div>
 
 <section class="tight" aria-labelledby="chapters-h"><div class="wrap">
   <h2 class="sr-only" id="chapters-h" data-i18n="about.chapters">Chapters</h2>
@@ -67,23 +67,27 @@
     <button type="button" role="tab" id="tab-3" aria-controls="chapter-3" aria-selected="false" tabindex="-1"><b data-i18n="about.tl3.year">Today</b><span data-i18n="about.tab3">Investment Platform</span></button>
   </div>
   <div class="chapter active" id="chapter-1" role="tabpanel" aria-labelledby="tab-1">
-    <div class="photo" style="background-image:url('/assets/chapter-2006.jpg');" role="img" aria-label="A craftsman carving a teak panel in an Indonesian furniture workshop"></div>
-    <div class="panel panel-dark"><div class="eyebrow on-dark" data-i18n="about.ch1.eyebrow">2006 · Indonesia to Australia</div><h2 data-i18n="about.ch1.title">A name inspired by quality and value.</h2><p data-i18n="about.ch1.body">In 2006, Chase Golden Globe began its first trading operations, importing fine furniture and handicrafts from Indonesia into the Australian market. The name was inspired by the Golden Globe grape — distinctive, refined, and naturally associated with quality and value. What started as a small showroom gradually expanded into a broader trading network built on trust, discipline and long-term relationships.</p></div>
+    <figure class="photo"><div class="photo-img" style="background-image:url('/assets/chapter-2006.jpg');" role="img" aria-label="A craftsman carving a teak panel in an Indonesian furniture workshop"></div><figcaption data-i18n="about.ch1.cap">Hand-carved teak, the trade where the house began.</figcaption></figure>
+    <div class="chapter-text"><div class="eyebrow" data-i18n="about.ch1.eyebrow">2006 · Indonesia to Australia</div><h2 data-i18n="about.ch1.title">A name inspired by quality and value.</h2><p data-i18n="about.ch1.body">In 2006, Chase Golden Globe began its first trading operations, importing fine furniture and handicrafts from Indonesia into the Australian market. The name was inspired by the Golden Globe grape — distinctive, refined, and naturally associated with quality and value. What started as a small showroom gradually expanded into a broader trading network built on trust, discipline and long-term relationships.</p></div>
   </div>
   <div class="chapter" id="chapter-2" role="tabpanel" aria-labelledby="tab-2" hidden>
-    <div class="photo" style="background-image:url('/assets/chapter-2010.jpg');" role="img" aria-label="A gilded reception room with chandelier and marble floor"></div>
-    <div class="panel panel-khaki"><div class="eyebrow on-khaki" data-i18n="about.ch2.eyebrow">2010 · Europe, the Middle East, Asia</div><h2 data-i18n="about.ch2.title">From a showroom to an international network.</h2><p data-i18n="about.ch2.body">As the business grew, Chase Golden Globe began re-exporting selected Indonesian furniture and handicraft to markets across Europe and the Middle East, then expanded into food and agricultural products, including Australian honey and premium dairy, supplying Indonesia, Asia and international markets. In 2010 a new chapter began through a venture with Royalty Prussia, extending into high-end interior design, luxury real estate, premium renovations and prestigious properties including embassies and palaces around the world.</p></div>
+    <figure class="photo"><div class="photo-img" style="background-image:url('/assets/chapter-2010.jpg');" role="img" aria-label="A gilded reception room with chandelier and marble floor"></div><figcaption data-i18n="about.ch2.cap">Interiors and luxury property, from 2010.</figcaption></figure>
+    <div class="chapter-text"><div class="eyebrow" data-i18n="about.ch2.eyebrow">2010 · Europe, the Middle East, Asia</div><h2 data-i18n="about.ch2.title">From a showroom to an international network.</h2><p data-i18n="about.ch2.body">As the business grew, Chase Golden Globe began re-exporting selected Indonesian furniture and handicraft to markets across Europe and the Middle East, then expanded into food and agricultural products, including Australian honey and premium dairy, supplying Indonesia, Asia and international markets. In 2010 a new chapter began through a venture with Royalty Prussia, extending into high-end interior design, luxury real estate, premium renovations and prestigious properties including embassies and palaces around the world.</p></div>
   </div>
   <div class="chapter" id="chapter-3" role="tabpanel" aria-labelledby="tab-3" hidden>
-    <div class="photo" style="background-image:url('/assets/hero-capabilities.jpg');" role="img" aria-label="A boardroom overlooking a city at dusk"></div>
-    <div class="panel panel-dark"><div class="eyebrow on-dark" data-i18n="about.ch3.eyebrow">Today · Worldwide</div><h2 data-i18n="about.ch3.title">A broader international business and investment network.</h2><p data-i18n="about.ch3.body">Today, Chase Golden Globe operates as an international business and investment platform. Fouad Barhoum travels the world connecting investors to projects, drawing on relationships built across investment and finance, real estate, oil and gas, mining, international trade and strategic partnerships. The company has worked closely with investment authorities and government-linked institutions in Indonesia, and its network extends to sovereign wealth funds, state-owned companies and private investors worldwide.</p></div>
+    <figure class="photo"><div class="photo-img" style="background-image:url('/assets/hero-capabilities.jpg');" role="img" aria-label="A boardroom overlooking a city at dusk"></div><figcaption data-i18n="about.ch3.cap">Connecting investors to projects, today.</figcaption></figure>
+    <div class="chapter-text"><div class="eyebrow" data-i18n="about.ch3.eyebrow">Today · Worldwide</div><h2 data-i18n="about.ch3.title">A broader international business and investment network.</h2><p data-i18n="about.ch3.body">Today, Chase Golden Globe operates as an international business and investment platform. Fouad Barhoum travels the world connecting investors to projects, drawing on relationships built across investment and finance, real estate, oil and gas, mining, international trade and strategic partnerships. The company has worked closely with investment authorities and government-linked institutions in Indonesia, and its network extends to sovereign wealth funds, state-owned companies and private investors worldwide.</p></div>
   </div>
 </div></section>
 
 <section class="tight" aria-labelledby="philosophy-h"><div class="wrap">
-  <div class="row2">
-    <div class="panel panel-khaki"><div class="eyebrow on-khaki" data-i18n="about.philosophy.eyebrow">Our Philosophy</div><h2 id="philosophy-h" data-i18n="about.philosophy.title">Start small. Think big. Go fast.</h2><p data-i18n="about.philosophy.body">The journey has included successes, challenges, setbacks and failures. Failure is not regarded as defeat; it is experience, and a lesson that strengthens the next decision. Sustainable success comes from discipline and consistency, not shortcuts. Markets change, opportunities change, people change. Integrity, professionalism and trust must remain constant.</p></div>
-    <div class="panel panel-dark"><div class="eyebrow on-dark" data-i18n="about.trust.eyebrow">Trust Is Our Capital</div><h2 data-i18n="about.trust.title">Trust takes years to build and seconds to lose.</h2><p data-i18n="about.trust.body">For this reason, Chase Golden Globe operates with discipline, discretion and accountability. We do not pursue every opportunity. We focus on those with a credible foundation, a clear commercial purpose and the potential to create real value for all parties.</p></div>
+  <div class="creed">
+    <div class="eyebrow" data-i18n="about.philosophy.eyebrow">Our Philosophy</div>
+    <h2 class="creed-line" id="philosophy-h" data-i18n="about.philosophy.title">Start small. Think big. Go fast.</h2>
+    <div class="split">
+    <div class="split-col"><p data-i18n="about.philosophy.body">The journey has included successes, challenges, setbacks and failures. Failure is not regarded as defeat; it is experience, and a lesson that strengthens the next decision. Sustainable success comes from discipline and consistency, not shortcuts. Markets change, opportunities change, people change. Integrity, professionalism and trust must remain constant.</p></div>
+    <div class="split-col"><div class="eyebrow" data-i18n="about.trust.eyebrow">Trust Is Our Capital</div><h3 data-i18n="about.trust.title">Trust takes years to build and seconds to lose.</h3><p data-i18n="about.trust.body">For this reason, Chase Golden Globe operates with discipline, discretion and accountability. We do not pursue every opportunity. We focus on those with a credible foundation, a clear commercial purpose and the potential to create real value for all parties.</p></div>
+    </div>
   </div>
 </div></section>
 
@@ -111,18 +115,21 @@
         <h2 data-i18n="home.cta.title">Begin the conversation.</h2>
         <p data-i18n="home.cta.body">For matters of investment, trade or partnership, enquiries are received directly.</p>
       </div>
-      <a class="btn btn-brass" href="/contact.html" data-i18n="home.cta.btn">Contact Us</a>
+      <div class="f-mail">
+        <div class="email-row"><a class="email-big" href="mailto:info@chasegoldenglobe.com.au?subject=Enquiry%3A%20%5Bproject%20name%5D&amp;body=Project%3A%0AMarket%20%2F%20country%3A%0AStage%3A%0ACapital%20sought%3A%0A" data-mailto>info@chasegoldenglobe.com.au</a><button type="button" class="copybtn" data-email="info@chasegoldenglobe.com.au" data-i18n="contact.copy">Copy</button></div>
+        <p class="f-nda" data-i18n="home.cta.nda">In confidence. A non-disclosure agreement can be in place before any detail is shared.</p>
+      </div>
     </div>
     <div class="f-top">
       <div>
         <a class="footer-logo" href="/" aria-label="Chase Golden Globe — Home">
-          <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="40" height="28"></picture>
+          <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="40" height="28" loading="lazy"></picture>
           <span>Chase Golden Globe</span>
         </a>
         <p class="f-blurb" data-i18n="footer.blurb">A private investment house, established 2006. Connecting investors to serious projects across international markets.</p>
       </div>
-      <div class="f-col"><h4 data-i18n="footer.explore">Explore</h4><a href="/about.html" data-i18n="nav.about">About</a><br><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><br><a href="/industries.html" data-i18n="nav.industries">Industries</a><br><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
-      <div class="f-col"><h4 data-i18n="footer.connect">Connect</h4><a href="/contact.html" data-i18n="nav.contact">Contact</a><br><a href="mailto:info@chasegoldenglobe.com.au">info@chasegoldenglobe.com.au</a></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.explore">Explore</h2><a href="/about.html" data-i18n="nav.about">About</a><br><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><br><a href="/industries.html" data-i18n="nav.industries">Industries</a><br><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.connect">Connect</h2><a href="/contact.html" data-i18n="nav.contact">Contact</a><br><a href="mailto:info@chasegoldenglobe.com.au?subject=Enquiry%3A%20%5Bproject%20name%5D&amp;body=Project%3A%0AMarket%20%2F%20country%3A%0AStage%3A%0ACapital%20sought%3A%0A" data-mailto>info@chasegoldenglobe.com.au</a></div>
     </div>
     <div class="f-bot">
       <p data-i18n="footer.disclaimer">Chase Golden Globe Pty Ltd is not itself a licensed financial services provider. Where a service requires a specific licence, it is delivered in partnership with appropriately licensed professionals and firms.</p>

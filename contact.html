@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://chasegoldenglobe.com.au/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://chasegoldenglobe.com.au/contact.html"}]}</script>
 </head>
-<body>
+<body class="has-hero">
 <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 <nav class="site-nav" id="siteNav" aria-label="Primary">
   <a class="nav-logo" href="/" aria-label="Chase Golden Globe — Home">
@@ -40,23 +40,24 @@
     <a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a>
     <a href="/industries.html" data-i18n="nav.industries">Industries</a>
     <a href="/presence.html" data-i18n="nav.presence">Presence</a>
-    <a href="/contact.html" class="active" data-i18n="nav.contact">Contact</a>
+    <a href="/contact.html" class="active" aria-current="page" data-i18n="nav.contact">Contact</a>
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true" class="active">EN</button>
-      <button type="button" data-lang="ar" lang="ar" aria-label="العربية" aria-pressed="false">ع</button>
+      <button type="button" data-lang="ar" lang="ar" aria-label="العربية" aria-pressed="false">عربي</button>
       <button type="button" data-lang="id" lang="id" aria-label="Bahasa Indonesia" aria-pressed="false">ID</button>
     </div>
   </div>
 </nav>
 <main id="main">
-<section class="tight"><div class="wrap">
-  <div class="phero" style="background-image:url('/assets/hero-contact-new.jpg');"><div class="phero-in">
+<div class="hero hero-page">
+  <div class="hero-photo" style="background-image:url('/assets/hero-contact-new.jpg');"></div>
+  <div class="hero-in">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/" data-i18n="crumb.home">Home</a></li><li aria-hidden="true">/</li><li aria-current="page" data-i18n="nav.contact">Contact</li></ol></nav>
     <div class="eyebrow on-dark" data-i18n="home.cta.eyebrow">Get in Touch</div>
     <h1 class="h-page" id="contact-h" data-i18n="home.cta.title">Begin the conversation.</h1>
     <p class="lede on-dark" data-i18n="home.cta.body">For matters of investment, trade or partnership, enquiries are received directly.</p>
-  </div></div>
-</div></section>
+  </div>
+</div>
 
 <section class="tight" aria-labelledby="contact-h2"><div class="wrap">
   <div class="contact">
@@ -64,17 +65,17 @@
       <div class="eyebrow on-dark" data-i18n="contact.h2.eyebrow">Tell Us About the Project</div>
       <h2 id="contact-h2" data-i18n="contact.h2.title">The most direct way to reach us is by email.</h2>
       <p data-i18n="contact.h2.body">Tell us briefly about the project, the market it sits in and what stage it is at. We reply personally.</p>
-      <div class="email"><a href="mailto:info@chasegoldenglobe.com.au">info@chasegoldenglobe.com.au</a><button type="button" class="copybtn" id="copyEmail" data-email="info@chasegoldenglobe.com.au" data-i18n="contact.copy">Copy</button></div>
+      <div class="email"><a href="mailto:info@chasegoldenglobe.com.au?subject=Enquiry%3A%20%5Bproject%20name%5D&amp;body=Project%3A%0AMarket%20%2F%20country%3A%0AStage%3A%0ACapital%20sought%3A%0A" data-mailto>info@chasegoldenglobe.com.au</a><button type="button" class="copybtn" id="copyEmail" data-email="info@chasegoldenglobe.com.au" data-i18n="contact.copy">Copy</button></div>
       <p class="note" data-i18n="contact.office">Head office: Sydney, New South Wales, Australia</p>
-      <a class="btn btn-brass" href="mailto:info@chasegoldenglobe.com.au" data-i18n="contact.btn">Send an Enquiry</a>
+      <a class="btn btn-brass" href="mailto:info@chasegoldenglobe.com.au?subject=Enquiry%3A%20%5Bproject%20name%5D&amp;body=Project%3A%0AMarket%20%2F%20country%3A%0AStage%3A%0ACapital%20sought%3A%0A" data-mailto><span data-i18n="contact.btn">Email Us</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
     </div>
-    <div class="panel panel-khaki">
-      <div class="eyebrow on-khaki" data-i18n="contact.confidentiality.eyebrow">In Confidence</div>
+    <div class="confide">
+      <div class="eyebrow" data-i18n="contact.confidentiality.eyebrow">In Confidence</div>
       <h2 data-i18n="contact.confidentiality.title">Every conversation stays private.</h2>
       <p data-i18n="contact.confidentiality.body">Enquiries are handled with discretion from the first message. A non-disclosure agreement can be put in place before any detail is shared, where the matter calls for it. Only the people directly involved review what you send, and nothing is passed to a third party, partner or other client without your consent.</p>
       <div class="meta-inline">
-        <div><div class="eyebrow on-khaki" data-i18n="contact.confidentiality.f1.label">Discretion</div><p data-i18n="contact.confidentiality.f1.value">From the first message</p></div>
-        <div><div class="eyebrow on-khaki" data-i18n="contact.confidentiality.f2.label">NDA</div><p data-i18n="contact.confidentiality.f2.value">Available before details are shared</p></div>
+        <div><div class="eyebrow" data-i18n="contact.confidentiality.f1.label">Discretion</div><p data-i18n="contact.confidentiality.f1.value">From the first message</p></div>
+        <div><div class="eyebrow" data-i18n="contact.confidentiality.f2.label">NDA</div><p data-i18n="contact.confidentiality.f2.value">Available before details are shared</p></div>
       </div>
     </div>
   </div>
@@ -85,13 +86,13 @@
     <div class="f-top">
       <div>
         <a class="footer-logo" href="/" aria-label="Chase Golden Globe — Home">
-          <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="40" height="28"></picture>
+          <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="40" height="28" loading="lazy"></picture>
           <span>Chase Golden Globe</span>
         </a>
         <p class="f-blurb" data-i18n="footer.blurb">A private investment house, established 2006. Connecting investors to serious projects across international markets.</p>
       </div>
-      <div class="f-col"><h4 data-i18n="footer.explore">Explore</h4><a href="/about.html" data-i18n="nav.about">About</a><br><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><br><a href="/industries.html" data-i18n="nav.industries">Industries</a><br><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
-      <div class="f-col"><h4 data-i18n="footer.connect">Connect</h4><a href="/contact.html" data-i18n="nav.contact">Contact</a><br><a href="mailto:info@chasegoldenglobe.com.au">info@chasegoldenglobe.com.au</a></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.explore">Explore</h2><a href="/about.html" data-i18n="nav.about">About</a><br><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><br><a href="/industries.html" data-i18n="nav.industries">Industries</a><br><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.connect">Connect</h2><a href="/contact.html" data-i18n="nav.contact">Contact</a><br><a href="mailto:info@chasegoldenglobe.com.au?subject=Enquiry%3A%20%5Bproject%20name%5D&amp;body=Project%3A%0AMarket%20%2F%20country%3A%0AStage%3A%0ACapital%20sought%3A%0A" data-mailto>info@chasegoldenglobe.com.au</a></div>
     </div>
     <div class="f-bot">
       <p data-i18n="footer.disclaimer">Chase Golden Globe Pty Ltd is not itself a licensed financial services provider. Where a service requires a specific licence, it is delivered in partnership with appropriately licensed professionals and firms.</p>

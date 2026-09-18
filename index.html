@@ -28,7 +28,7 @@
 <link rel="preload" as="image" href="/assets/hero-home.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://chasegoldenglobe.com.au/#organization","name":"Chase Golden Globe","legalName":"Chase Golden Globe Pty Ltd","url":"https://chasegoldenglobe.com.au/","logo":"https://chasegoldenglobe.com.au/assets/logo.png","foundingDate":"2006","email":"info@chasegoldenglobe.com.au","description":"Chase Golden Globe is a private international business and investment platform that began by trading fine furniture between Indonesia and Australia in 2006, and today connects investors to projects across international markets.","founder":{"@type":"Person","name":"Fouad Barhoum"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"areaServed":["AU","ID","SA","QA","AE","DZ","EG","GB","CH","LU"]}</script>
 </head>
-<body>
+<body class="has-hero">
 <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 <nav class="site-nav" id="siteNav" aria-label="Primary">
   <a class="nav-logo" href="/" aria-label="Chase Golden Globe — Home">
@@ -44,44 +44,45 @@
     <a href="/contact.html" data-i18n="nav.contact">Contact</a>
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true" class="active">EN</button>
-      <button type="button" data-lang="ar" lang="ar" aria-label="العربية" aria-pressed="false">ع</button>
+      <button type="button" data-lang="ar" lang="ar" aria-label="العربية" aria-pressed="false">عربي</button>
       <button type="button" data-lang="id" lang="id" aria-label="Bahasa Indonesia" aria-pressed="false">ID</button>
     </div>
   </div>
 </nav>
 <main id="main">
-<div class="hero" style="background-image:url('/assets/hero-home.jpg');">
+<div class="hero">
+  <div class="hero-photo" style="background-image:url('/assets/hero-home.jpg');"></div>
   <div class="hero-in">
     <div class="eyebrow" data-i18n="hero.eyebrow">Private Investment House · Est. 2006</div>
     <h1 class="h-home" data-i18n="hero.title">From the docks to the deal room.</h1>
     <p class="lede on-dark" data-i18n="hero.lede">Chase Golden Globe began by trading fine furniture between Indonesia and Australia in 2006. Today it connects investors to projects across international markets, from real estate to energy to trade.</p>
-    <div class="btn-row"><a class="btn btn-brass" href="/about.html" data-i18n="hero.btn1">Our Story</a><a class="btn btn-line-dark" href="/contact.html" data-i18n="hero.btn2">Start a Conversation</a></div>
+    <div class="btn-row"><a class="btn btn-brass" href="/contact.html"><span data-i18n="hero.btn2">Begin a Conversation</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a><a class="btn btn-line-dark" href="/about.html" data-i18n="hero.btn1">Our Story</a></div>
   </div>
+  <div class="hero-stats">
+    <h2 class="sr-only" data-i18n="home.stats.heading">By the Numbers</h2>
+    <div class="stats">
+      <div class="stat"><div class="stat-l" data-i18n="home.stats.deals.label">Deals Facilitated</div><div class="stat-n"><bdi data-count="3.2" data-prefix="$" data-suffix="B+" data-dp="1">$3.2B+</bdi></div><div class="stat-u" data-i18n="home.stats.deals.unit">USD, cumulative deal value</div></div>
+      <div class="stat"><div class="stat-l" data-i18n="home.stats.years.label">In Operation</div><div class="stat-n"><span data-count="20">20</span></div><div class="stat-u" data-i18n="home.stats.years.unit">Years, continuously since 2006</div></div>
+      <div class="stat"><div class="stat-l" data-i18n="home.stats.countries.label">Global Reach</div><div class="stat-n"><span data-count="10">10</span></div><div class="stat-u" data-i18n="home.stats.countries.unit">Countries across four regions, including head office</div></div>
+    </div>
+  </div>
+  <div class="hero-fade" aria-hidden="true"></div>
 </div>
-
-<div class="band"><div class="wrap">
-  <h2 class="sr-only" data-i18n="home.stats.heading">By the Numbers</h2>
-  <div class="stats">
-    <div class="stat"><div class="stat-l" data-i18n="home.stats.deals.label">Deals Facilitated</div><div class="stat-n">$3.2B+</div><div class="stat-u" data-i18n="home.stats.deals.unit">USD, cumulative deal value</div></div>
-    <div class="stat"><div class="stat-l" data-i18n="home.stats.years.label">In Operation</div><div class="stat-n">20</div><div class="stat-u" data-i18n="home.stats.years.unit">Years, continuously since 2006</div></div>
-    <div class="stat"><div class="stat-l" data-i18n="home.stats.countries.label">Global Reach</div><div class="stat-n">10</div><div class="stat-u" data-i18n="home.stats.countries.unit">Countries across four regions, including head office</div></div>
-  </div>
-</div></div>
 
 <section aria-labelledby="story-h"><div class="wrap">
   <h2 class="sr-only" id="story-h" data-i18n="home.story.heading">The Story</h2>
-  <div class="row2">
-    <div class="panel panel-dark">
-      <div class="eyebrow on-dark" data-i18n="home.origin.eyebrow">Our Origin</div>
+  <div class="split">
+    <div class="split-col">
+      <div class="eyebrow" data-i18n="home.origin.eyebrow">Our Origin</div>
       <h3 data-i18n="home.origin.title">A trade in craftsmanship, before it was a trade in capital.</h3>
       <p data-i18n="home.origin.body">In 2006, Chase Golden Globe began by importing fine furniture and handicrafts from Indonesia into Australia, starting with a small showroom before growing into an international trading network.</p>
-      <a class="arrow" href="/about.html" data-i18n="home.origin.link">Read the full story →</a>
+      <a class="arrow" href="/about.html"><span data-i18n="home.origin.link">Read the full story</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
     </div>
-    <div class="panel panel-khaki">
-      <div class="eyebrow on-khaki" data-i18n="home.today.eyebrow">Today</div>
+    <div class="split-col">
+      <div class="eyebrow" data-i18n="home.today.eyebrow">Today</div>
       <h3 data-i18n="home.today.title">Investors on one side. Projects on the other.</h3>
       <p data-i18n="home.today.body">Fouad Barhoum now travels the world connecting investors to projects, sitting between the two: due diligence, investor reporting and pitch preparation, so capital understands the risk and projects are ready to receive it.</p>
-      <a class="arrow" href="/capabilities.html" data-i18n="home.today.link">See what we do →</a>
+      <a class="arrow" href="/capabilities.html"><span data-i18n="home.today.link">See what we do</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
     </div>
   </div>
 </div></section>
@@ -89,15 +90,15 @@
 <section class="tight" aria-labelledby="cap-h"><div class="wrap">
   <div class="sec-head"><div class="eyebrow" data-i18n="nav.capabilities">Capabilities</div><h2 class="h-sec" id="cap-h" data-i18n="home.cap.title">Nine ways we move a project toward capital.</h2></div>
   <div class="strip">
-      <a href="/capabilities.html"><span data-i18n="cap.t1.title">Structured Project &amp; Export Finance</span> <span aria-hidden="true">→</span></a>
-      <a href="/capabilities.html"><span data-i18n="cap.t2.title">Capital Structuring &amp; Risk</span> <span aria-hidden="true">→</span></a>
-      <a href="/capabilities.html"><span data-i18n="cap.t3.title">Impact &amp; Sustainable Investment</span> <span aria-hidden="true">→</span></a>
-      <a href="/capabilities.html"><span data-i18n="cap.t4.title">Government &amp; Institutional Liaising</span> <span aria-hidden="true">→</span></a>
-      <a href="/capabilities.html"><span data-i18n="cap.t5.title">Bankability &amp; Project Readiness</span> <span aria-hidden="true">→</span></a>
-      <a href="/capabilities.html"><span data-i18n="cap.t6.title">Capital Raising</span> <span aria-hidden="true">→</span></a>
-      <a href="/capabilities.html"><span data-i18n="cap.t7.title">Mergers &amp; Acquisitions</span> <span aria-hidden="true">→</span></a>
-      <a href="/capabilities.html"><span data-i18n="cap.t8.title">Private Equity Advisory</span> <span aria-hidden="true">→</span></a>
-      <a href="/capabilities.html"><span data-i18n="cap.t9.title">Joint Ventures &amp; Alliances</span> <span aria-hidden="true">→</span></a>
+      <a href="/capabilities.html#cap-1"><span data-i18n="cap.t1.title">Structured Project &amp; Export Finance</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/capabilities.html#cap-2"><span data-i18n="cap.t2.title">Capital Structuring &amp; Risk</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/capabilities.html#cap-3"><span data-i18n="cap.t3.title">Impact &amp; Sustainable Investment</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/capabilities.html#cap-4"><span data-i18n="cap.t4.title">Government &amp; Institutional Liaising</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/capabilities.html#cap-5"><span data-i18n="cap.t5.title">Bankability &amp; Project Readiness</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/capabilities.html#cap-6"><span data-i18n="cap.t6.title">Capital Raising</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/capabilities.html#cap-7"><span data-i18n="cap.t7.title">Mergers &amp; Acquisitions</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/capabilities.html#cap-8"><span data-i18n="cap.t8.title">Private Equity Advisory</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+      <a href="/capabilities.html#cap-9"><span data-i18n="cap.t9.title">Joint Ventures &amp; Alliances</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
   </div>
 </div></section>
 
@@ -108,7 +109,7 @@
         <div class="eyebrow on-dark" data-i18n="nav.industries">Industries</div>
         <h2 class="h-sec" id="ind-h" data-i18n="home.ind.title">Sectors we know from the inside.</h2>
         <p class="lede on-dark" data-i18n="home.ind.body">Several of these go back to the group's own ventures — furniture export, food and agriculture, luxury property — not sectors studied from a distance.</p>
-        <a class="btn btn-brass" href="/industries.html" data-i18n="home.ind.btn">All nine sectors</a>
+        <a class="arrow on-dark" href="/industries.html"><span data-i18n="home.ind.btn">All nine sectors</span><span class="relay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
       </div>
       <div class="sector-list">
           <div data-i18n="ind.s1.title">Agriculture &amp; Food Security</div>
@@ -326,18 +327,21 @@ __DROP__ data-name="Venezuela"></path>
         <h2 data-i18n="home.cta.title">Begin the conversation.</h2>
         <p data-i18n="home.cta.body">For matters of investment, trade or partnership, enquiries are received directly.</p>
       </div>
-      <a class="btn btn-brass" href="/contact.html" data-i18n="home.cta.btn">Contact Us</a>
+      <div class="f-mail">
+        <div class="email-row"><a class="email-big" href="mailto:info@chasegoldenglobe.com.au?subject=Enquiry%3A%20%5Bproject%20name%5D&amp;body=Project%3A%0AMarket%20%2F%20country%3A%0AStage%3A%0ACapital%20sought%3A%0A" data-mailto>info@chasegoldenglobe.com.au</a><button type="button" class="copybtn" data-email="info@chasegoldenglobe.com.au" data-i18n="contact.copy">Copy</button></div>
+        <p class="f-nda" data-i18n="home.cta.nda">In confidence. A non-disclosure agreement can be in place before any detail is shared.</p>
+      </div>
     </div>
     <div class="f-top">
       <div>
         <a class="footer-logo" href="/" aria-label="Chase Golden Globe — Home">
-          <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="40" height="28"></picture>
+          <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="40" height="28" loading="lazy"></picture>
           <span>Chase Golden Globe</span>
         </a>
         <p class="f-blurb" data-i18n="footer.blurb">A private investment house, established 2006. Connecting investors to serious projects across international markets.</p>
       </div>
-      <div class="f-col"><h4 data-i18n="footer.explore">Explore</h4><a href="/about.html" data-i18n="nav.about">About</a><br><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><br><a href="/industries.html" data-i18n="nav.industries">Industries</a><br><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
-      <div class="f-col"><h4 data-i18n="footer.connect">Connect</h4><a href="/contact.html" data-i18n="nav.contact">Contact</a><br><a href="mailto:info@chasegoldenglobe.com.au">info@chasegoldenglobe.com.au</a></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.explore">Explore</h2><a href="/about.html" data-i18n="nav.about">About</a><br><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><br><a href="/industries.html" data-i18n="nav.industries">Industries</a><br><a href="/presence.html" data-i18n="nav.presence">Presence</a></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.connect">Connect</h2><a href="/contact.html" data-i18n="nav.contact">Contact</a><br><a href="mailto:info@chasegoldenglobe.com.au?subject=Enquiry%3A%20%5Bproject%20name%5D&amp;body=Project%3A%0AMarket%20%2F%20country%3A%0AStage%3A%0ACapital%20sought%3A%0A" data-mailto>info@chasegoldenglobe.com.au</a></div>
     </div>
     <div class="f-bot">
       <p data-i18n="footer.disclaimer">Chase Golden Globe Pty Ltd is not itself a licensed financial services provider. Where a service requires a specific licence, it is delivered in partnership with appropriately licensed professionals and firms.</p>
