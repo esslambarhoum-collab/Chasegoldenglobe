@@ -269,7 +269,14 @@
         if (el.getBoundingClientRect().top > window.innerHeight) {
           el.classList.add(el.matches('figure, .office3, .geo-photo, .plate, img') ? 'rv-wipe' : 'rv');
           io.observe(el);
+        } else {
+          // already on screen at load: show it straight away, so a staggered
+          // list above the fold is never left hidden
+          el.classList.add('in');
         }
+      });
+      each(document.querySelectorAll('.stagger'), function (el) {
+        if (el.getBoundingClientRect().top <= window.innerHeight) el.classList.add('in');
       });
       // figures already on screen still get their numbers animated
       var statsIo = new IntersectionObserver(function (es) {
