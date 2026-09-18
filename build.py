@@ -188,13 +188,13 @@ def strip_html():
 def cap_cards():
     out = []
     for i, (t, b) in enumerate(CAPS):
-        out.append(f'      <article class="entry" id="cap-{i+1}"><h3 data-i18n="cap.t{i+1}.title">{t}</h3><p data-i18n="cap.t{i+1}.body">{b}</p></article>')
+        out.append(f'      <article class="lrow" id="cap-{i+1}"><h3 data-i18n="cap.t{i+1}.title">{t}</h3><p data-i18n="cap.t{i+1}.body">{b}</p></article>')
     return "\n".join(out)
 
 def sector_cards():
     out = []
     for i, (t, b) in enumerate(SECTORS):
-        out.append(f'      <article class="entry entry-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">{ICONS[i]}</svg><h3 data-i18n="ind.s{i+1}.title">{t}</h3><p data-i18n="ind.s{i+1}.body">{b}</p></article>')
+        out.append(f'      <article class="lrow lrow-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">{ICONS[i]}</svg><h3 data-i18n="ind.s{i+1}.title">{t}</h3><p data-i18n="ind.s{i+1}.body">{b}</p></article>')
     return "\n".join(out)
 
 def sector_list():
@@ -319,13 +319,13 @@ PAGES["about"] = dict(
   </div>
 </div></section>
 
-<section class="tight" aria-labelledby="philosophy-h"><div class="wrap">
+<section class="creed-band" aria-labelledby="philosophy-h"><div class="wrap">
   <div class="creed">
-    <div class="eyebrow" data-i18n="about.philosophy.eyebrow">Our Philosophy</div>
+    <div class="eyebrow on-dark" data-i18n="about.philosophy.eyebrow">Our Philosophy</div>
     <h2 class="creed-line" id="philosophy-h" data-i18n="about.philosophy.title">Start small. Think big. Go fast.</h2>
-    <div class="split">
-    <div class="split-col"><p data-i18n="about.philosophy.body">The journey has included successes, challenges, setbacks and failures. Failure is not regarded as defeat; it is experience, and a lesson that strengthens the next decision. Sustainable success comes from discipline and consistency, not shortcuts. Markets change, opportunities change, people change. Integrity, professionalism and trust must remain constant.</p></div>
-    <div class="split-col"><div class="eyebrow" data-i18n="about.trust.eyebrow">Trust Is Our Capital</div><h3 data-i18n="about.trust.title">Trust takes years to build and seconds to lose.</h3><p data-i18n="about.trust.body">For this reason, Chase Golden Globe operates with discipline, discretion and accountability. We do not pursue every opportunity. We focus on those with a credible foundation, a clear commercial purpose and the potential to create real value for all parties.</p></div>
+    <div class="creed-cols">
+    <div><p data-i18n="about.philosophy.body">The journey has included successes, challenges, setbacks and failures. Failure is not regarded as defeat; it is experience, and a lesson that strengthens the next decision. Sustainable success comes from discipline and consistency, not shortcuts. Markets change, opportunities change, people change. Integrity, professionalism and trust must remain constant.</p></div>
+    <div><div class="eyebrow on-dark" data-i18n="about.trust.eyebrow">Trust Is Our Capital</div><h3 data-i18n="about.trust.title">Trust takes years to build and seconds to lose.</h3><p data-i18n="about.trust.body">For this reason, Chase Golden Globe operates with discipline, discretion and accountability. We do not pursue every opportunity. We focus on those with a credible foundation, a clear commercial purpose and the potential to create real value for all parties.</p></div>
     </div>
   </div>
 </div></section>
@@ -373,7 +373,7 @@ PAGES["capabilities"] = dict(
 
 <section class="tight" aria-labelledby="caps-h"><div class="wrap">
   <div class="sec-head"><div class="eyebrow" data-i18n="cap.h2.eyebrow">How We Move Capital</div><h2 class="h-sec" id="caps-h" data-i18n="cap.h2.title">Work we do directly, not a menu we outsource.</h2><p class="copy" data-i18n="cap.h2.body">Where a capability requires a specific financial services licence, it is delivered in partnership with an appropriately licensed practitioner or firm.</p></div>
-  <div class="entries">
+  <div class="ledger">
 {cap_cards()}
   </div>
 </div></section>
@@ -389,7 +389,7 @@ PAGES["industries"] = dict(
 {phero("/assets/hero-sectors.jpg", "nav.industries", "Industries", "ind.eyebrow", "Where We Work", "ind.title", "Sectors we understand.", "ind.lede", "Nine sectors, several of them shaped by the group's own ventures rather than studied from a distance.", "ind-h")}
 <section class="tight" aria-labelledby="sectors-h"><div class="wrap">
   <div class="sec-head"><div class="eyebrow" data-i18n="ind.h2.eyebrow">From the Inside</div><h2 class="h-sec" id="sectors-h" data-i18n="ind.h2.title">The group has operated in these sectors, not only advised on them.</h2></div>
-  <div class="entries">
+  <div class="ledger">
 {sector_cards()}
   </div>
 </div></section>
