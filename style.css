@@ -98,13 +98,13 @@ html[dir="rtl"] :is(.arrow,.u,.f-col a,.f-bot a,.email-big){background-position:
 .has-hero .site-nav{position:fixed;inset-inline:0;top:0;background:transparent;border-bottom-color:transparent;box-shadow:none;color:var(--d1)}
 .has-hero .site-nav:not(.scrolled) .nav-logo-text{color:var(--d1)}
 .has-hero .site-nav:not(.scrolled) .nav-logo-sub,
-.has-hero .site-nav:not(.scrolled) .nav-links a{color:var(--d2);text-shadow:0 1px 8px rgba(22,17,9,.45)}
+.has-hero .site-nav:not(.scrolled) .nav-links a{color:var(--d1);text-shadow:0 1px 10px rgba(22,17,9,.6)}
 .has-hero .site-nav:not(.scrolled) .nav-links a:hover,
 .has-hero .site-nav:not(.scrolled) .nav-links a.active{color:var(--d1)}
 .has-hero .site-nav:not(.scrolled) .nav-links a::after{background:var(--champagne)}
 .has-hero .site-nav:not(.scrolled) .nav-links a.active::after{background:var(--brass)}
 .has-hero .site-nav:not(.scrolled) .lang-switch{border-inline-start-color:var(--line-dark)}
-.has-hero .site-nav:not(.scrolled) .lang-switch button{color:var(--d2)}
+.has-hero .site-nav:not(.scrolled) .lang-switch button{color:var(--d1)}
 .has-hero .site-nav:not(.scrolled) .lang-switch button:hover{background:rgba(246,241,231,.12);color:var(--d1)}
 .has-hero .site-nav:not(.scrolled) .lang-switch button.active{background:rgba(246,241,231,.16);color:var(--d1)}
 .has-hero .site-nav:not(.scrolled) .nav-toggle{color:var(--d1)}
@@ -132,7 +132,7 @@ html[dir="rtl"] .nav-links a::after{transform-origin:right}
 .hero{position:relative;min-height:clamp(660px,92vh,880px);display:flex;flex-direction:column;justify-content:flex-end;color:var(--d1);background-color:var(--ink);overflow:hidden}
 .hero-photo{position:absolute;inset:0;background-size:cover;background-position:center 40%;transform:scale(1.02);animation:drift 30s ease-in-out infinite alternate;will-change:transform}
 @keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.09) translateY(-1.2%)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,17,9,.42) 0%,rgba(22,17,9,.24) 22%,rgba(22,17,9,.5) 58%,rgba(22,17,9,.9) 84%,rgba(22,17,9,1) 97%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,17,9,.78) 0%,rgba(22,17,9,.62) 9%,rgba(22,17,9,.3) 24%,rgba(22,17,9,.52) 58%,rgba(22,17,9,.9) 84%,rgba(22,17,9,1) 97%)}
 .hero-in{position:relative;z-index:1;width:100%;max-width:var(--max);margin:0 auto;padding:150px var(--gutter) 44px}
 .hero .eyebrow{color:var(--champagne)}
 .hero h1{text-shadow:0 2px 12px rgba(0,0,0,.3)}
@@ -155,7 +155,7 @@ html[dir="rtl"] .nav-links a::after{transform-origin:right}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .hero-page{min-height:0;height:clamp(420px,46vw,520px);justify-content:flex-start}
 .hero-page .hero-photo{background-position:center 45%;animation-duration:38s}
-.hero-page::after{background:linear-gradient(90deg,rgba(22,17,9,.62) 0%,rgba(22,17,9,.2) 65%,rgba(22,17,9,0) 100%),linear-gradient(180deg,rgba(22,17,9,.35) 0%,rgba(22,17,9,.5) 45%,rgba(22,17,9,.9) 100%)}
+.hero-page::after{background:linear-gradient(90deg,rgba(22,17,9,.62) 0%,rgba(22,17,9,.2) 65%,rgba(22,17,9,0) 100%),linear-gradient(180deg,rgba(22,17,9,.8) 0%,rgba(22,17,9,.62) 10%,rgba(22,17,9,.34) 26%,rgba(22,17,9,.52) 58%,rgba(22,17,9,.9) 100%)}
 .hero-page .hero-in{padding-top:132px;padding-bottom:0}
 .hero-page .breadcrumbs ol{margin-bottom:14px;min-height:20px}
 .hero-page .eyebrow{min-height:16px;margin-bottom:14px}
@@ -494,4 +494,4 @@ html[dir="rtl"] .skip-link:focus{right:0;left:auto}
 html[dir="rtl"] .plate{padding:0 28px 28px 0}
 html[dir="rtl"] .sector-band::after{background:linear-gradient(270deg,rgba(22,17,9,.9) 0%,rgba(22,17,9,.72) 55%,rgba(22,17,9,.35) 100%)}
 html[dir="rtl"] .eyebrow,html[dir="rtl"] .stat-l{font-size:14px;font-weight:600}
-html[dir="rtl"] .hero-page::after{background:linear-gradient(270deg,rgba(22,17,9,.62) 0%,rgba(22,17,9,.2) 65%,rgba(22,17,9,0) 100%),linear-gradient(180deg,rgba(22,17,9,.35) 0%,rgba(22,17,9,.5) 45%,rgba(22,17,9,.9) 100%)}
+html[dir="rtl"] .hero-page::after{background:linear-gradient(270deg,rgba(22,17,9,.62) 0%,rgba(22,17,9,.2) 65%,rgba(22,17,9,0) 100%),linear-gradient(180deg,rgba(22,17,9,.8) 0%,rgba(22,17,9,.62) 10%,rgba(22,17,9,.34) 26%,rgba(22,17,9,.52) 58%,rgba(22,17,9,.9) 100%)}
