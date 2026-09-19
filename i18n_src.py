@@ -42,7 +42,7 @@ EN = {
   "footer.explore": "Explore", "footer.connect": "Connect",
   "footer.copyright": "© 2026 Chase Golden Globe Pty Ltd", "footer.legal": "Legal & Privacy",
 
-  "about.title": "Our story.",
+  "about.eyebrow": "Since 2006", "about.title": "Our story.",
   "about.lede": "From a small furniture showroom in 2006 to an international business and investment platform, in three chapters.",
   "about.chapters": "Chapters",
   "about.tl1.year": "2006", "about.tl2.year": "2010", "about.tl3.year": "Today",
@@ -195,7 +195,7 @@ AR = {
   "footer.explore": "استكشف", "footer.connect": "تواصل",
   "footer.copyright": "© 2026 تشيس غولدن غلوب المحدودة", "footer.legal": "الشروط والخصوصية",
 
-  "about.title": "قصتنا.",
+  "about.eyebrow": "منذ 2006", "about.title": "قصتنا.",
   "about.lede": "من صالة عرض صغيرة للأثاث عام 2006 إلى منصة أعمال واستثمار دولية، في ثلاثة فصول.",
   "about.chapters": "الفصول",
   "about.tl1.year": "2006", "about.tl2.year": "2010", "about.tl3.year": "اليوم",
@@ -348,7 +348,7 @@ ID = {
   "footer.explore": "Jelajahi", "footer.connect": "Terhubung",
   "footer.copyright": "© 2026 Chase Golden Globe Pty Ltd", "footer.legal": "Hukum & Privasi",
 
-  "about.title": "Kisah kami.",
+  "about.eyebrow": "Sejak 2006", "about.title": "Kisah kami.",
   "about.lede": "Dari showroom mebel kecil pada 2006 menjadi platform bisnis dan investasi internasional, dalam tiga babak.",
   "about.chapters": "Babak",
   "about.tl1.year": "2006", "about.tl2.year": "2010", "about.tl3.year": "Hari Ini",

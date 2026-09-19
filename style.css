@@ -249,13 +249,23 @@ html[dir="rtl"] .nav-links a::after{transform-origin:right}
 
 /* Tiles — capabilities and sectors, equal ivory panels on a strict grid */
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.tile{position:relative;display:flex;flex-direction:column;gap:10px;background:var(--ivory);border:1px solid var(--line);border-radius:var(--r-card);padding:30px 28px 32px;scroll-margin-top:120px;transition:border-color .3s var(--ease),background-color .3s var(--ease)}
-.tile::before{content:"";position:absolute;inset-block-start:-1px;inset-inline-start:-1px;width:36px;height:2px;background:var(--brass);opacity:0;transition:opacity .3s var(--ease)}
-.tile:hover{border-color:rgba(22,17,9,.24);background:#FAF6EE}
-.tile:hover::before,.tile:target::before{opacity:1}
+.tile{position:relative;display:flex;flex-direction:column;gap:10px;background:var(--ivory);border:1px solid var(--line);border-radius:var(--r-card);padding:30px 28px 32px;scroll-margin-top:120px;
+  box-shadow:0 1px 2px rgba(22,17,9,.05),0 10px 26px -18px rgba(22,17,9,.35);
+  transition:border-color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease)}
+.tile:hover{border-color:rgba(22,17,9,.2);box-shadow:0 2px 4px rgba(22,17,9,.06),0 22px 44px -22px rgba(22,17,9,.45);transform:translateY(-2px)}
+.tile:hover .icon{color:var(--brass)}
+.tile:target{border-color:var(--brass)}
 .tile h3{font-size:1.24rem;line-height:1.18;max-width:20ch}
 .tile p{color:var(--t2);font-size:.96rem;max-width:42ch}
-.tile-icon .icon{width:30px;height:30px;color:var(--brass-dim);margin-bottom:6px}
+.tile-icon .icon{width:30px;height:30px;color:var(--brass-dim);margin-bottom:6px;transition:color .35s var(--ease)}
+/* capabilities: two wide columns with a rule under the title, so the page does
+   not read as the same grid as the sectors */
+.tiles-wide{grid-template-columns:repeat(2,1fr);gap:24px}
+.tiles-wide .tile{padding:34px 36px 36px;gap:0}
+.tiles-wide .tile h3{font-size:1.5rem;max-width:24ch;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.tiles-wide .tile p{font-size:1rem;max-width:52ch;padding-top:18px}
+.tiles-wide .tile:last-child{grid-column:1/-1}
+.tiles-wide .tile:last-child p{max-width:76ch}
 
 /* Presence — office accordion: the hovered city opens up */
 .office3{display:flex;gap:16px}
@@ -424,8 +434,10 @@ html[dir="rtl"] .email-big{background-position:100% calc(100% - 6px),100% calc(1
   .stat-l{grid-area:l}.stat-u{grid-area:u;font-size:.85rem}
   .stat-n{grid-area:n;margin:0;font-size:2.2rem}
   .split,.pres-teaser,.map-block,.chapter,.founder,.contact,.sector-in,.creed-cols{grid-template-columns:1fr}
-  .tiles{grid-template-columns:1fr 1fr;gap:16px}
-  .tile{padding:24px 22px 26px}
+  .tiles,.tiles-wide{grid-template-columns:1fr 1fr;gap:16px}
+  .tile,.tiles-wide .tile{padding:24px 22px 26px}
+  .tiles-wide .tile h3{font-size:1.28rem;padding-bottom:14px}
+  .tiles-wide .tile p{padding-top:14px}
   .hero-page{height:clamp(380px,62vw,460px)}
   .hero-page .hero-in{padding-top:104px}
   .creed-cols{padding-top:24px}
@@ -458,7 +470,7 @@ html[dir="rtl"] .email-big{background-position:100% calc(100% - 6px),100% calc(1
 }
 @media (max-width:560px){
   .f-top{grid-template-columns:1fr}
-  .tiles{grid-template-columns:1fr}
+  .tiles,.tiles-wide{grid-template-columns:1fr}
   .hero-page{height:auto;min-height:380px}
   .hero-page .hero-in{padding-top:96px;padding-bottom:36px}
   .photo{min-height:240px}

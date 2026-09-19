@@ -301,7 +301,7 @@ PAGES["about"] = dict(
     schema=[breadcrumb_schema("About", "about"),
             '{"@context":"https://schema.org","@type":"AboutPage","url":"' + SITE + '/about.html","mainEntity":{"@type":"Organization","name":"Chase Golden Globe","founder":{"@type":"Person","name":"Fouad Barhoum"},"foundingDate":"2006"}}'],
     body=f'''<main id="main">
-{phero("/assets/hero-lobby.jpg", "nav.about", "About", None, None, "about.title", "Our story.", "about.lede", "From a small furniture showroom in 2006 to an international business and investment platform, in three chapters.", "about-h")}
+{phero("/assets/hero-lobby.jpg", "nav.about", "About", "about.eyebrow", "Since 2006", "about.title", "Our story.", "about.lede", "From a small furniture showroom in 2006 to an international business and investment platform, in three chapters.", "about-h")}
 <section class="tight" aria-labelledby="chapters-h"><div class="wrap">
   <h2 class="sr-only" id="chapters-h" data-i18n="about.chapters">Chapters</h2>
   <div class="timeline" role="tablist" aria-label="Company history">
@@ -377,7 +377,7 @@ PAGES["capabilities"] = dict(
 
 <section class="tight" aria-labelledby="caps-h"><div class="wrap">
   <div class="sec-head"><div class="eyebrow" data-i18n="cap.h2.eyebrow">How We Move Capital</div><h2 class="h-sec" id="caps-h" data-i18n="cap.h2.title">Work we do directly, not a menu we outsource.</h2><p class="copy" data-i18n="cap.h2.body">Where a capability requires a specific financial services licence, it is delivered in partnership with an appropriately licensed practitioner or firm.</p></div>
-  <div class="tiles">
+  <div class="tiles tiles-wide">
 {cap_cards()}
   </div>
 </div></section>
