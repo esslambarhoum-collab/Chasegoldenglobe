@@ -79,8 +79,8 @@ def nav(active):
     return f'''<a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 <nav class="site-nav" id="siteNav" aria-label="Primary">
   <a class="nav-logo" href="/" aria-label="Chase Golden Globe — Home">
-    <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="46" height="32"></picture>
-    <div><div class="nav-logo-text">Chase Golden Globe</div><div class="nav-logo-sub" data-i18n="nav.sub">Est. 2006 · Sydney</div></div>
+    <picture><source srcset="/assets/logo-mark.webp" type="image/webp"><img src="/assets/logo-mark.png" alt="" width="65" height="36"></picture>
+    <div><div class="nav-logo-text" translate="no">Chase Golden Globe</div><div class="nav-logo-sub" data-i18n="nav.sub">Est. 2006 · Sydney</div></div>
   </a>
   <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
   <div class="nav-links" id="navLinks">
@@ -117,7 +117,7 @@ def footer(cta=True, minimal=False):
         <p data-i18n="home.cta.body">For matters of investment, trade or partnership, enquiries are received directly.</p>
       </div>
       <div class="f-mail">
-        <div class="email-row"><a class="email-big" href="{MAILTO}" data-mailto>{EMAIL}</a><button type="button" class="copybtn" data-email="{EMAIL}" data-i18n="contact.copy">Copy</button></div>
+        <div class="email-row"><a class="email-big" href="{MAILTO}" data-mailto translate="no">{EMAIL}</a><button type="button" class="copybtn" data-email="{EMAIL}" data-i18n="contact.copy">Copy</button></div>
         <p class="f-nda" data-i18n="home.cta.nda">In confidence. A non-disclosure agreement can be in place before any detail is shared.</p>
       </div>
     </div>
@@ -125,13 +125,13 @@ def footer(cta=True, minimal=False):
     top = f'''    <div class="f-top">
       <div>
         <a class="footer-logo" href="/" aria-label="Chase Golden Globe — Home">
-          <picture><source srcset="/assets/logo.webp" type="image/webp"><img src="/assets/logo.png" alt="" width="40" height="28" loading="lazy"></picture>
-          <span>Chase Golden Globe</span>
+          <picture><source srcset="/assets/logo-mark.webp" type="image/webp"><img src="/assets/logo-mark.png" alt="" width="58" height="32" loading="lazy"></picture>
+          <span translate="no">Chase Golden Globe</span>
         </a>
         <p class="f-blurb" data-i18n="footer.blurb">A private investment house, established 2006. Connecting investors to serious projects across international markets.</p>
       </div>
       <div class="f-col"><h2 class="f-h" data-i18n="footer.explore">Explore</h2><div class="f-links"><a href="/about.html" data-i18n="nav.about">About</a><a href="/capabilities.html" data-i18n="nav.capabilities">Capabilities</a><a href="/industries.html" data-i18n="nav.industries">Industries</a><a href="/presence.html" data-i18n="nav.presence">Presence</a></div></div>
-      <div class="f-col"><h2 class="f-h" data-i18n="footer.connect">Connect</h2><div class="f-links"><a href="/contact.html" data-i18n="nav.contact">Contact</a><a href="{MAILTO}" data-mailto>{EMAIL}</a></div></div>
+      <div class="f-col"><h2 class="f-h" data-i18n="footer.connect">Connect</h2><div class="f-links"><a href="/contact.html" data-i18n="nav.contact">Contact</a><a href="{MAILTO}" data-mailto translate="no">{EMAIL}</a></div></div>
     </div>
 ''' if not minimal else ""
     return f'''<footer class="site-footer{" minimal" if minimal else ""}">
@@ -451,7 +451,7 @@ PAGES["contact"] = dict(
       <div class="eyebrow on-dark" data-i18n="contact.h2.eyebrow">Tell Us About the Project</div>
       <h2 id="contact-h2" data-i18n="contact.h2.title">The most direct way to reach us is by email.</h2>
       <p data-i18n="contact.h2.body">Tell us briefly about the project, the market it sits in and what stage it is at. We reply personally.</p>
-      <div class="email"><a href="{MAILTO}" data-mailto>{EMAIL}</a><button type="button" class="copybtn" id="copyEmail" data-email="{EMAIL}" data-i18n="contact.copy">Copy</button></div>
+      <div class="email"><a href="{MAILTO}" data-mailto translate="no">{EMAIL}</a><button type="button" class="copybtn" id="copyEmail" data-email="{EMAIL}" data-i18n="contact.copy">Copy</button></div>
       <p class="note" data-i18n="contact.office">Head office: Sydney, New South Wales, Australia</p>
       <a class="btn btn-brass" href="{MAILTO}" data-mailto><span data-i18n="contact.btn">Email Us</span>{RELAY}</a>
     </div>
@@ -486,6 +486,7 @@ PAGES["legal"] = dict(
   <div class="legal-block">
     <div class="eyebrow" data-i18n="legal.licensing.eyebrow">Financial Services Disclosure</div>
     <h2 data-i18n="legal.licensing.title">Licensing.</h2>
+    <p class="copy legal-abn" data-i18n="legal.abn">Chase Golden Globe Pty Ltd · ABN 24 119 607 724 · ACN 119 607 724 · Registered in New South Wales, Australia.</p>
     <p class="copy" data-i18n="legal.licensing.body">Chase Golden Globe Pty Ltd is a private trading, investment and trade facilitation house. It is <strong>not itself a licensed financial services provider</strong>. Where a piece of work requires a specific professional or financial services licence, for example under the Australian Corporations Act or an equivalent regime in another market, that work is carried out in partnership with appropriately licensed practitioners, advisers or firms. Nothing on this website constitutes financial, investment, legal or tax advice, and nothing here should be relied upon as such. Prospective partners and clients should seek their own independent professional advice before entering into any arrangement.</p>
   </div>
   <div class="legal-block">
